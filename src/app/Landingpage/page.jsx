@@ -2,7 +2,7 @@ import { fetchData } from "../modules/functions";
 import { serverEndport } from "../modules/settings";
 
 const data = fetchData(serverEndport + "/bands");
-console.log("data is " + typeof data);
+console.log("data is " + Array.from(data));
 
 export default function Landingpage() {
     if (!Array.isArray(data)) {
