@@ -1,0 +1,1 @@
+export const serverEndport = "https://mgp-allstars-2009-server.glitch.me/";
