@@ -1,33 +1,30 @@
-"use client"
-
-// import { fetchData } from "../modules/functions";
-import { serverEndpoint, localEndpoint } from "../modules/settings";
 
 
-async function fetchData(endpoint) {
-    try {
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        console.table(data);
-        return data;
-    } catch (error){
-        console.error(error);
-    }
+import {useQuery, useMutation } from "@tanstack/react-query";
+import { fetchData } from "@/app/modules/functions";
+import { endpoint } from "@/app/modules/settings";
 
 
-}
-const data = fetchData(serverEndpoint + "/bands");
+
+
 console.log(typeof(data));
-export default function Landingpage() {
 
+
+export default async function Landingpage() {
+
+    const data = await fetchData(endpoint + "/bands");
     return (
-    <div>
-        {Object.keys(data).map((data, index)=>
-            <li key={index}>
-                <p>{data.name}</p>
-            </li>
-        )}
 
-        </div>
+        <ul>
+             {Object.keys(data).map(key =>
+                <li key={key}>
+                    <p className="font-bold">{data[key].name}</p>
+                    <p>{data[key].genre}</p>
+                </li>
+            )} 
+
+
+            </ul>
+
     );
 }

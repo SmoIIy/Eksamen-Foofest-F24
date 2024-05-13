@@ -1,4 +1,5 @@
 import Landingpage from "./landingpage/page";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function Home() {
   return (
