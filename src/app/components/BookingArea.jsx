@@ -8,7 +8,7 @@ export default async function BookingArea(){
     console.log(areasAvailable);
     async function reserveSpot(data){
         "use server"
-        console.log(data);
+        console.log("data is ", data);
         const response = await fetch((endpoint + "/reserve-spot"), {
             method: "PUT",
             // headers: {
@@ -16,13 +16,11 @@ export default async function BookingArea(){
             // },
             body: {
                 "area": data.area,
-                "guests": data.guests
+                "amount": data.guests, 
             }
         })
         const reserveData = await response.text();
-        
-        console.log("Reserving: " + reserveData);
-
+        console.log(typeof(data.guests), reserveData);
     }
 
 
@@ -31,24 +29,20 @@ export default async function BookingArea(){
         const rawFormData = {
             greencamping: formData.get("greencamping"),
             area: formData.get("area"),
-            guests: formData.get("guests")
+            guests: parseInt(formData.get("guests"))
             
         }
-
-        const bodyContent = JSON.stringify(rawFormData);
+        const bodyContent = rawFormData;
         const response = await fetch(databaseTestEndport, {
             method: "POST",
             headers: headerList,
             body: bodyContent
         })
         const data = await response.json();
-        console.log("bodycontent is " + bodyContent)
-        console.log(data);
 
-        reserveSpot(JSON.parse(bodyContent));
+        reserveSpot(bodyContent);
     }
-
-
+   
     return (
         <form action={submitForm} className="p-8 border max-w-screen-sm flex flex-col items-center ">
             <div className="m-4 p-4 border">
@@ -59,11 +53,13 @@ export default async function BookingArea(){
             <div className="m-4 p-4 border">
                 <label htmlFor="area">Area</label>
                 <select className="text-black" name="area" id="area">
-                    {Object.keys(areasAvailable).map(key => 
-                            <option key={key} value={areasAvailable[key].area}>
-                                {areasAvailable[key].area}
-                            </option>
-                    )} 
+                    {Object.values(areasAvailable).map(area =>
+                       { area.available && 
+                       <option key={area} value={area.area}>
+                            {area.area}
+                        </option> }
+                    )}
+
                 </select>
             </div>
             <div className="m-4 p-4 border">
