@@ -8,19 +8,20 @@ export default async function BookingArea(){
     console.log(areasAvailable);
     async function reserveSpot(data){
         "use server"
+        console.log(data);
         const response = await fetch((endpoint + "/reserve-spot"), {
             method: "PUT",
             // headers: {
             //     "Content-Type": "application/json"
             // },
             body: {
-                area: "data.area",
-                guests: 2
+                "area": data.area,
+                "guests": data.guests
             }
         })
-        const reserveData = await JSON.stringify(response);
+        const reserveData = await response.text();
         
-        console.log("Reserving: " + response);
+        console.log("Reserving: " + reserveData);
 
     }
 
@@ -44,7 +45,7 @@ export default async function BookingArea(){
         console.log("bodycontent is " + bodyContent)
         console.log(data);
 
-        reserveSpot(bodyContent);
+        reserveSpot(JSON.parse(bodyContent));
     }
 
 
