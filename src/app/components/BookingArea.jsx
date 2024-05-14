@@ -6,6 +6,25 @@ import { apiKey, databaseTestEndport, endpoint, headerList } from "../modules/se
 export default async function BookingArea(){
     const areasAvailable = await fetchData(endpoint + "/available-spots");
     console.log(areasAvailable);
+    async function reserveSpot(data){
+        "use server"
+        const response = await fetch((endpoint + "/reserve-spot"), {
+            method: "PUT",
+            // headers: {
+            //     "Content-Type": "application/json"
+            // },
+            body: {
+                area: "data.area",
+                guests: 2
+            }
+        })
+        const reserveData = await JSON.stringify(response);
+        
+        console.log("Reserving: " + response);
+
+    }
+
+
     async function submitForm(formData){
         'use server'
         const rawFormData = {
@@ -25,8 +44,9 @@ export default async function BookingArea(){
         console.log("bodycontent is " + bodyContent)
         console.log(data);
 
-
+        reserveSpot(bodyContent);
     }
+
 
     return (
         <form action={submitForm} className="p-8 border max-w-screen-sm flex flex-col items-center ">
