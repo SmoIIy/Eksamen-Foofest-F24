@@ -1,4 +1,4 @@
-import BookingInitial from "../components/BookingInitial"
+import BookingArea from "../components/BookingArea"
 import { fetchData } from "../modules/functions"
 import { apiKey, databaseTestEndport, endpoint } from "../modules/settings"
 //TODO FIX AREAS AVAILABLE
@@ -6,6 +6,6 @@ import { apiKey, databaseTestEndport, endpoint } from "../modules/settings"
 
 export default async function Booking(){
     return ( 
-        <BookingInitial />
+        <BookingArea />
     )
 }
