@@ -9,3 +9,10 @@ export const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 export const databaseEndport = "https://wmnfkrittwtqmpjoxhvn.supabase.co/rest/v1/bookings"
 
 export const databaseTestEndport = "https://wmnfkrittwtqmpjoxhvn.supabase.co/rest/v1/bookingtesting"
+
+export const headerList = {
+    Accept: "application/json",
+    apikey: apiKey,
+    Prefer: "return=representation", 
+    "Content-Type": "application/json",
+}
