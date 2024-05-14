@@ -6,7 +6,7 @@ import { endpoint } from "@/app/modules/settings";
 
 const Schedule = () => {
     const [selectedDay, setSelectedDay] = useState(null);
-    const [scheduleData, setScheduleData] = useState(null);
+    const [scheduleData, setScheduleData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
