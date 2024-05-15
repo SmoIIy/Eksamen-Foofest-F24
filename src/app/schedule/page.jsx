@@ -1,15 +1,60 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
+"use client";
+import React from "react";
+import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
 import { fetchData } from "@/app/modules/functions";
 import { endpoint } from "@/app/modules/settings";
+import { useState } from "react";
 
-console.log(typeof data);
+const queryClient = new QueryClient();
 
-export default async function Landingpage() {
-    const data = await fetchData(endpoint + "/schedule");
+export default function SchedulePage() {
+    return (
+        <QueryClientProvider client={queryClient}>
+            <Schedule />
+        </QueryClientProvider>
+    );
+}
+
+function Schedule() {
+    const [selectedScene, setSelectedScene] = useState("Midgard");
+
+    const { data, error, isLoading } = useQuery({
+        queryKey: ["schedule"],
+        queryFn: () => fetchData(endpoint + "/schedule"),
+    });
+
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error loading schedule</div>;
+
+    const scenes = ["Midgard", "Vanaheim", "Jotunheim"];
+
     return (
         <div>
-            <h1>Schedule</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, quidem magni corrupti autem dolores at nesciunt enim quasi culpa fugit dolorem error doloribus ad. Quae nam dolore molestias cumque soluta?</p>
+            <div>
+                {scenes.map((scene) => (
+                    <button key={scene} onClick={() => setSelectedScene(scene)}>
+                        {scene}
+                    </button>
+                ))}
+            </div>
+            <div>
+                <h2>{selectedScene} Schedule</h2>
+                {Object.entries(data[selectedScene]).map(([day, events]) => (
+                    <div key={day}>
+                        <h3>{day}</h3>
+                        <ul>
+                            {events.map((event, index) => (
+                                <li key={index}>
+                                    <strong>
+                                        {event.start} - {event.end}
+                                    </strong>
+                                    : {event.act} {event.cancelled ? "(Cancelled)" : ""}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
