@@ -45,10 +45,10 @@ function Schedule() {
                         <ul>
                             {events.map((event, index) => (
                                 <li key={index}>
-                                    <strong>
+                                    <div>
                                         {event.start} - {event.end}
-                                    </strong>
-                                    : {event.act} {event.cancelled ? "(Cancelled)" : ""}
+                                    </div>
+                                    {event.act} {event.cancelled ? "(Cancelled)" : ""}
                                 </li>
                             ))}
                         </ul>
