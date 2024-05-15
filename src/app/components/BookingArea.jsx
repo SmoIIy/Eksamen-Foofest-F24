@@ -33,8 +33,20 @@ export default async function BookingArea() {
 				amount: data.guests,
 			},
 		});
-		const reserveData = await response.text();
-		console.log(typeof data.guests, reserveData);
+		const reserveData = await response.json();
+		if (reserveData.error) {
+			console.log(reserveData);
+		} else {
+			uploadData(data, reserveData.id);
+		}
+	}
+	async function uploadData(data, id) {
+		const response = await fetch(databaseTestEndport, {
+			method: "POST",
+			headers: headerList,
+			body: data,
+		});
+		await console.log("Posting ", response, "to database", id);
 	}
 
 	async function submitForm(formData) {
@@ -61,7 +73,7 @@ export default async function BookingArea() {
 				<label htmlFor="area">Area</label>
 				<select className="text-black" name="area" id="area">
 					{Object.values(areasAvailable).map((area) => (
-						<option key={area} value={area.area}>
+						<option key={area.area} value={area.area}>
 							{area.area}
 						</option>
 					))}
