@@ -38,7 +38,7 @@ function Schedule() {
                 ))}
             </div>
             <div>
-                <h2>{selectedScene} Schedule</h2>
+                <h1>{selectedScene} Schedule</h1>
                 {Object.entries(data[selectedScene]).map(([day, events]) => (
                     <div key={day}>
                         <h3>{day}</h3>
