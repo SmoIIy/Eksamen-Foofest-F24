@@ -34,6 +34,14 @@ export default async function BookingArea() {
 				amount: data.guests,
 			}),
 		});
+			async function uploadData(data, id) {
+		const response = await fetch(databaseTestEndport, {
+			method: "POST",
+			headers: headerList,
+			body: data,
+		});
+		await console.log("Posting ", response, "to database", id);
+	}
 		const reserveData = await response.json();
 		if (reserveData.error) {
 			console.log(reserveData);
@@ -42,14 +50,7 @@ export default async function BookingArea() {
 			console.log("Success", reserveData);
 		}
 	}
-	async function uploadData(data, id) {
-		const response = await fetch(databaseTestEndport, {
-			method: "POST",
-			headers: headerList,
-			body: data,
-		});
-		await console.log("Posting ", response, "to database", id);
-	}
+
 	async function submitForm(formData) {
 		"use server";
 		const rawFormData = {
