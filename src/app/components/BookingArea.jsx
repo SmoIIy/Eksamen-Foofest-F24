@@ -21,23 +21,25 @@ export default async function BookingArea() {
 	});
 
 	console.log(areasAvailable);
+
 	async function reserveSpot(data) {
 		"use server";
 		const response = await fetch(endpoint + "/reserve-spot", {
 			method: "PUT",
-			// headers: {
-			//     "Content-Type": "application/json"
-			// },
-			body: {
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
 				area: data.area,
 				amount: data.guests,
-			},
+			}),
 		});
 		const reserveData = await response.json();
 		if (reserveData.error) {
 			console.log(reserveData);
 		} else {
 			uploadData(data, reserveData.id);
+			console.log("Success", reserveData);
 		}
 	}
 	async function uploadData(data, id) {
@@ -48,7 +50,6 @@ export default async function BookingArea() {
 		});
 		await console.log("Posting ", response, "to database", id);
 	}
-
 	async function submitForm(formData) {
 		"use server";
 		const rawFormData = {
