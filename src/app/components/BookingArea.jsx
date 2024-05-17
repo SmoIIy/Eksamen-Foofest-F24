@@ -38,6 +38,8 @@ export default async function BookingArea() {
 
 		// nu er den her ---
 		async function uploadData(data, id) {
+			data.randomid = id;
+			console.log(data);
 			const response = await fetch(databaseTestEndport, {
 				method: "POST",
 				headers: headerList,
@@ -51,9 +53,18 @@ export default async function BookingArea() {
 		if (reserveData.error) {
 			console.log(reserveData);
 		} else {
-			uploadData(data, reserveData.id);
-			console.log("Success", reserveData);
-			redirect("/booking/bookinginfo");
+			let success = false;
+			try {
+				uploadData(data, reserveData.id);
+				console.log("Success", reserveData);
+				success = true;
+			} catch (error) {
+				redirect("/not-found");
+			} finally {
+				if (success) {
+					redirect("/booking/bookinginfo?id=" + reserveData.id);
+				}
+			}
 		}
 	}
 	//den var her----
