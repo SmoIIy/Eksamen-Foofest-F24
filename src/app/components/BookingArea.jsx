@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { fetchData } from "../modules/functions";
 import {
 	apiKey,
@@ -52,6 +53,7 @@ export default async function BookingArea() {
 		} else {
 			uploadData(data, reserveData.id);
 			console.log("Success", reserveData);
+			redirect("/booking/bookinginfo");
 		}
 	}
 	//den var her----
