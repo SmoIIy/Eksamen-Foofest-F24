@@ -40,7 +40,7 @@ export default async function BookingArea() {
 		const response = await fetch(databaseTestEndport, {
 			method: "POST",
 			headers: headerList,
-			body: data,
+			body: JSON.stringify(data),
 		});
 	//------------
 
