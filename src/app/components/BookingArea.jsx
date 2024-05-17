@@ -35,17 +35,17 @@ export default async function BookingArea() {
 			}),
 		});
 
-	// nu er den her ---
-			async function uploadData(data, id) {
-		const response = await fetch(databaseTestEndport, {
-			method: "POST",
-			headers: headerList,
-			body: JSON.stringify(data),
-		});
-	//------------
+		// nu er den her ---
+		async function uploadData(data, id) {
+			const response = await fetch(databaseTestEndport, {
+				method: "POST",
+				headers: headerList,
+				body: JSON.stringify(data),
+			});
+			//------------
 
-		await console.log("Posting ", response, "to database", id);
-	}
+			await console.log("Posting ", response, "to database", id);
+		}
 		const reserveData = await response.json();
 		if (reserveData.error) {
 			console.log(reserveData);
@@ -96,13 +96,21 @@ export default async function BookingArea() {
 			</div>
 			<div className="m-4 p-4 border flex flex-col">
 				<label htmlFor="guests">Guests</label>
-				<input
-					placeholder="Input number of guests"
-					className="text-black p-2"
-					type="number"
+				<select
+					className="text-black [&>*]:p-2"
 					name="guests"
 					id="guests"
-				/>
+				>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
 			</div>
 			<div className="m-4 p-4 border">
 				<fieldset>
