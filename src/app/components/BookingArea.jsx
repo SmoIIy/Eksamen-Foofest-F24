@@ -23,10 +23,6 @@ export default async function BookingArea() {
 
 	console.log(areasAvailable);
 
-	//den var her----
-	//<------
-	//----------------
-
 	async function submitForm(formData) {
 		"use server";
 
@@ -50,7 +46,6 @@ export default async function BookingArea() {
 				}),
 			});
 
-			// nu er den her ---
 			async function uploadData(data, id) {
 				data.randomid = id;
 				console.log(data);
