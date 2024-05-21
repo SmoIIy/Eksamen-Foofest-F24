@@ -23,56 +23,13 @@ export default async function BookingArea() {
 
 	console.log(areasAvailable);
 
-	async function reserveSpot(data) {
-		"use server";
-		const response = await fetch(endpoint + "/reserve-spot", {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				area: data.area,
-				amount: data.guests,
-			}),
-		});
-
-		// nu er den her ---
-		async function uploadData(data, id) {
-			data.randomid = id;
-			console.log(data);
-			const response = await fetch(databaseTestEndport, {
-				method: "POST",
-				headers: headerList,
-				body: JSON.stringify(data),
-			});
-			//------------
-
-			await console.log("Posting ", response, "to database", id);
-		}
-		const reserveData = await response.json();
-		if (reserveData.error) {
-			console.log(reserveData);
-		} else {
-			let success = false;
-			try {
-				uploadData(data, reserveData.id);
-				console.log("Success", reserveData);
-				success = true;
-			} catch (error) {
-				redirect("/not-found");
-			} finally {
-				if (success) {
-					redirect("/booking/bookinginfo?id=" + reserveData.id);
-				}
-			}
-		}
-	}
 	//den var her----
 	//<------
 	//----------------
 
 	async function submitForm(formData) {
 		"use server";
+
 		const rawFormData = {
 			greencamping: formData.get("greencamping"),
 			area: formData.get("area"),
@@ -80,7 +37,39 @@ export default async function BookingArea() {
 			twopersontents: parseInt(formData.get("tent-2")),
 			threepersontents: parseInt(formData.get("tent-3")),
 		};
-		reserveSpot(rawFormData);
+		async function reserveSpot(data) {
+			"use server";
+			const response = await fetch(endpoint + "/reserve-spot", {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					area: data.area,
+					amount: data.guests,
+				}),
+			});
+
+			// nu er den her ---
+			async function uploadData(data, id) {
+				data.randomid = id;
+				console.log(data);
+				const response = await fetch(databaseTestEndport, {
+					method: "POST",
+					headers: headerList,
+					body: JSON.stringify(data),
+				});
+				//------------
+
+				await console.log("Posting ", response, "to database", id);
+				return id;
+			}
+			const reserveData = await response.json();
+			return uploadData(rawFormData, reserveData.id);
+		}
+
+		const id = await reserveSpot(rawFormData);
+		redirect("/booking/bookinginfo?id=" + id);
 	}
 
 	return (
