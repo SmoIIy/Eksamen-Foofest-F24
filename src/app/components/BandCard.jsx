@@ -12,5 +12,5 @@ export default async function BandCard ({name, img, alt}){
   </div>
     )
     
-
+//:D
 }
