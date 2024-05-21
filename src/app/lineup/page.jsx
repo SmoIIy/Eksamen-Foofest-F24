@@ -16,7 +16,7 @@ export default async function Lineup() {
 <ul>
      {Object.keys(data).map(key =>
                 <li key={key}>
-                <BandCard name={data[key].name} img={data[key].logo}/>
+                <BandCard name={data[key].name} img={data[key].logo} slug={data[key].slug}/>
                 </li>
             )} 
 </ul>

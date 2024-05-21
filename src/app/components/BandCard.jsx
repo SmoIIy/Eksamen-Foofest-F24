@@ -2,11 +2,14 @@ import {useQuery, useMutation } from "@tanstack/react-query";
 import { fetchData } from "@/app/modules/functions";
 import { endpoint } from "@/app/modules/settings";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function BandCard({ name, img, alt }) {
+export default function BandCard({ name, img, alt, slug }) {
   return (
     <div className="p-4 rounded-md shadow-md mb-4">
-      <a href="" className="block">
+      <Link className="block"
+        href={`/lineup/${slug}`}>
+
         <h2 className="text-xl font-semibold mb-2">{name}</h2>
         <div className="aspect-w-16 aspect-h-9">
           <Image
@@ -16,8 +19,12 @@ export default function BandCard({ name, img, alt }) {
             alt="test testensen"
         />
         </div>
-      </a>
+      </Link>
     </div>
   );
 }
+
+
+
+
 
