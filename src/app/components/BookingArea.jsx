@@ -33,6 +33,7 @@ export default async function BookingArea() {
 			twopersontents: parseInt(formData.get("tent-2")),
 			threepersontents: parseInt(formData.get("tent-3")),
 		};
+
 		async function reserveSpot(data) {
 			"use server";
 			const response = await fetch(endpoint + "/reserve-spot", {
@@ -56,7 +57,7 @@ export default async function BookingArea() {
 				});
 				//------------
 
-				await console.log("Posting ", response, "to database", id);
+				console.log("Posting ",  await response.json(), "to database", id);
 				return id;
 			}
 			const reserveData = await response.json();
