@@ -64,7 +64,7 @@ export default async function BookingArea() {
 		}
 
 		const id = await reserveSpot(rawFormData);
-		redirect("/booking/bookinginfo?id=" + id);
+		redirect("/booking/bookinginfo?randomid=eq." + id);
 	}
 
 	return (

@@ -11,7 +11,7 @@ export default function Pricebox(props) {
 	return (
 		<section className="text-white min-w-72 border rounded-lg overflow-hidden flex flex-col [&>*+*]:ml-4 [&>*+*]:mx-4 h-fit ">
 			<div className="bg-white text-black flex items-center justify-center font-bold h-16 w-full mb-4">
-				<h2 className="m-auto">Overview</h2>
+				<h2 className="m-auto text-xl">Overview</h2>
 			</div>
 			<div className="pb-4 mb-4 border-b-2">
 				<p className="flex justify-between">
