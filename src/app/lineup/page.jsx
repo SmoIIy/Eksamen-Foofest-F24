@@ -6,7 +6,7 @@ import BandCard from "@/app/components/BandCard";
 
 
 
-console.log(typeof(data));
+
 
 
 export default async function Lineup() {
