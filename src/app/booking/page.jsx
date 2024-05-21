@@ -10,7 +10,6 @@ export default async function Booking() {
 	return (
 		<main className="flex m-auto w-full justify-around">
 			<BookingArea />
-			<Pricebox />
 		</main>
 	);
 }

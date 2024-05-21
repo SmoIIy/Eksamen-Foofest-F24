@@ -92,12 +92,37 @@ export default async function BookingArea() {
 				</select>
 			</div>
 			<div className="m-4 p-4 border flex flex-col">
-				<label htmlFor="guests">Guests</label>
+				<label htmlFor="guests">
+					Guests <span className="text-xs">(799,- per guest)</span>
+				</label>
 				<select
 					className="text-black [&>*]:p-2"
 					name="guests"
 					id="guests"
 				>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+			</div>
+			<div className="m-4 p-4 border flex flex-col">
+				<label htmlFor="vipguests">
+					VIP Guests{" "}
+					<span className="text-xs">(1299,- per guest)</span>
+				</label>
+				<select
+					className="text-black [&>*]:p-2"
+					name="vipguests"
+					id="vipguests"
+				>
+					<option value="0">0</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>

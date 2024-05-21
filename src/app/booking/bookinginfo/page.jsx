@@ -17,7 +17,7 @@ export default async function bookingInfo({ searchParams }) {
 	return (
 		<main className="flex m-auto w-full justify-around">
 			<BookingPersonal />
-			<Pricebox props={priceData} />
+			<Pricebox props={priceData[0]} />
 		</main>
 	);
 }
