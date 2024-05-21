@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { fetchData } from "../modules/functions";
 import {
 	apiKey,
@@ -22,44 +23,9 @@ export default async function BookingArea() {
 
 	console.log(areasAvailable);
 
-	async function reserveSpot(data) {
-		"use server";
-		const response = await fetch(endpoint + "/reserve-spot", {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				area: data.area,
-				amount: data.guests,
-			}),
-		});
-
-	// nu er den her ---
-			async function uploadData(data, id) {
-		const response = await fetch(databaseTestEndport, {
-			method: "POST",
-			headers: headerList,
-			body: data,
-		});
-	//------------
-
-		await console.log("Posting ", response, "to database", id);
-	}
-		const reserveData = await response.json();
-		if (reserveData.error) {
-			console.log(reserveData);
-		} else {
-			uploadData(data, reserveData.id);
-			console.log("Success", reserveData);
-		}
-	}
-	//den var her----
-	//<------
-	//----------------
-
 	async function submitForm(formData) {
 		"use server";
+
 		const rawFormData = {
 			greencamping: formData.get("greencamping"),
 			area: formData.get("area"),
@@ -67,7 +33,38 @@ export default async function BookingArea() {
 			twopersontents: parseInt(formData.get("tent-2")),
 			threepersontents: parseInt(formData.get("tent-3")),
 		};
-		reserveSpot(rawFormData);
+		async function reserveSpot(data) {
+			"use server";
+			const response = await fetch(endpoint + "/reserve-spot", {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					area: data.area,
+					amount: data.guests,
+				}),
+			});
+
+			async function uploadData(data, id) {
+				data.randomid = id;
+				console.log(data);
+				const response = await fetch(databaseTestEndport, {
+					method: "POST",
+					headers: headerList,
+					body: JSON.stringify(data),
+				});
+				//------------
+
+				await console.log("Posting ", response, "to database", id);
+				return id;
+			}
+			const reserveData = await response.json();
+			return uploadData(rawFormData, reserveData.id);
+		}
+
+		const id = await reserveSpot(rawFormData);
+		redirect("/booking/bookinginfo?id=" + id);
 	}
 
 	return (
@@ -96,13 +93,21 @@ export default async function BookingArea() {
 			</div>
 			<div className="m-4 p-4 border flex flex-col">
 				<label htmlFor="guests">Guests</label>
-				<input
-					placeholder="Input number of guests"
-					className="text-black p-2"
-					type="number"
+				<select
+					className="text-black [&>*]:p-2"
 					name="guests"
 					id="guests"
-				/>
+				>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
 			</div>
 			<div className="m-4 p-4 border">
 				<fieldset>
