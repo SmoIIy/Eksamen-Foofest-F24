@@ -6,6 +6,7 @@ import {
 	endpoint,
 	headerList,
 } from "../modules/settings";
+import { submitForm } from "../modules/actions";
 //TODO FIX AREAS AVAILABLE
 //FOR LOOP MAYBE?
 // const response = await fetch(databaseTestEndport, {
@@ -22,51 +23,6 @@ export default async function BookingArea() {
 	});
 
 	console.log(areasAvailable);
-
-	async function submitForm(formData) {
-		"use server";
-
-		const rawFormData = {
-			greencamping: formData.get("greencamping"),
-			area: formData.get("area"),
-			guests: parseInt(formData.get("guests")),
-			twopersontents: parseInt(formData.get("tent-2")),
-			threepersontents: parseInt(formData.get("tent-3")),
-		};
-
-		async function reserveSpot(data) {
-			"use server";
-			const response = await fetch(endpoint + "/reserve-spot", {
-				method: "PUT",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					area: data.area,
-					amount: data.guests,
-				}),
-			});
-
-			async function uploadData(data, id) {
-				data.randomid = id;
-				console.log(data);
-				const response = await fetch(databaseTestEndport, {
-					method: "POST",
-					headers: headerList,
-					body: JSON.stringify(data),
-				});
-				//------------
-
-				console.log("Posting ",  await response.json(), "to database", id);
-				return id;
-			}
-			const reserveData = await response.json();
-			return uploadData(rawFormData, reserveData.id);
-		}
-
-		const id = await reserveSpot(rawFormData);
-		redirect("/booking/bookinginfo?randomid=eq." + id);
-	}
 
 	return (
 		<form
@@ -106,11 +62,7 @@ export default async function BookingArea() {
 					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
+					<option value="5">5</option>
 				</select>
 			</div>
 			<div className="m-4 p-4 border flex flex-col">
@@ -128,11 +80,7 @@ export default async function BookingArea() {
 					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
+					<option value="5">5</option>
 				</select>
 			</div>
 			<div className="m-4 p-4 border">
