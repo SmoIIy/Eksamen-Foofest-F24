@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Pricebox(props) {
 	console.log("Props ", props.props);
-	const [vips, setVips] = useState(props.props.guests);
+	const [vips, setVips] = useState(props.props.vipguests);
 	console.log(vips);
 	const [regulars, setRegulars] = useState(props.props.guests);
 	const [twopers, setTwopers] = useState(props.props.twopersontents);

@@ -14,6 +14,7 @@ export async function submitForm(formData) {
 		greencamping: formData.get("greencamping"),
 		area: formData.get("area"),
 		guests: parseInt(formData.get("guests")),
+		vipguests: parseInt(formData.get("vipguests")),
 		twopersontents: parseInt(formData.get("tent-2")),
 		threepersontents: parseInt(formData.get("tent-3")),
 	};
@@ -27,7 +28,7 @@ export async function submitForm(formData) {
 			},
 			body: JSON.stringify({
 				area: data.area,
-				amount: data.guests,
+				amount: data.guests + data.vipguests,
 			}),
 		});
 
@@ -45,9 +46,16 @@ export async function submitForm(formData) {
 			return id;
 		}
 		const reserveData = await response.json();
+
 		return uploadData(rawFormData, reserveData.id);
 	}
 
 	const id = await reserveSpot(rawFormData);
 	redirect("/booking/bookinginfo?randomid=eq." + id);
 }
+
+// export const areasAvailable = Object.values(
+// 	await fetchData(endpoint + "/available-spots"),
+// ).filter((key) => {
+// 	return key.available != 0;
+// });
