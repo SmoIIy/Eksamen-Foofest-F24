@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
     <html lang="en" className="h-full">
       <body className={`flex flex-col min-h-screen h-full ${poppins.className}`}>
         <div className="flex-grow flex flex-col">
-          <header>
-            <nav className="flex justify-around m-auto max-w-screen-sm p-8 bg-black-blue">
+          <header className="bg-black-blue text-white py-4 text-center">
+            <nav className="">
               <Link href="/">Home</Link>
               <Link href="/booking">Booking</Link>
               <Link href="/schedule">Schedule</Link>
