@@ -92,7 +92,7 @@ export default function BookingArea() {
 							key={area.area}
 							value={area.area}
 						>
-							{area.area}
+							{area.area} {area.available} Spots left
 						</option>
 					))}
 				</select>
