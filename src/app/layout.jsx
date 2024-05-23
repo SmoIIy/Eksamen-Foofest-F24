@@ -3,9 +3,10 @@ import "./globals.css";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
-const poppins = Poppins({ subsets: ["latin"],
-weight: ['400', '700'] });
-
+const poppins = Poppins({ 
+  subsets: ["latin"], 
+  weight: ['400', '700'] 
+});
 
 export const metadata = {
   title: "Foo Fest festival 2024",
@@ -14,15 +15,27 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-        <nav className="flex justify-around m-auto max-w-screen-sm p-8">
-            <Link href="/">Home</Link>
-            <Link href="/booking">Booking</Link>
-            <Link href="/schedule">Schedule</Link>
-            <Link href="/lineup">Lineup</Link>
-        </nav>
-        {children}</body>
+    <html lang="en" className="h-full">
+      <body className={`flex flex-col min-h-screen h-full ${poppins.className}`}>
+        <div className="flex-grow flex flex-col">
+          <header>
+            <nav className="flex justify-around m-auto max-w-screen-sm p-8 bg-black-blue">
+              <Link href="/">Home</Link>
+              <Link href="/booking">Booking</Link>
+              <Link href="/schedule">Schedule</Link>
+              <Link href="/lineup">Lineup</Link>
+            </nav>
+          </header>
+          
+          <main className="flex-grow">
+            {children}
+          </main>
+        </div>
+        
+        <footer className="bg-black-blue text-white py-4 text-center">
+          <p>FooFest 2024</p>
+        </footer>
+      </body>
     </html>
   );
 }
