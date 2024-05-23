@@ -1,11 +1,16 @@
+"use client";
 import { redirect } from "next/navigation";
 import { fetchData } from "../modules/functions";
+import { useFormStatus } from "react-dom";
 import {
 	apiKey,
 	databaseTestEndport,
 	endpoint,
 	headerList,
 } from "../modules/settings";
+import { areasAvailable, submitForm } from "../modules/actions";
+import { useEffect, useState } from "react";
+import { FormProvider } from "react-hook-form";
 //TODO FIX AREAS AVAILABLE
 //FOR LOOP MAYBE?
 // const response = await fetch(databaseTestEndport, {
@@ -14,138 +19,156 @@ import {
 // 	body: bodyContent,
 // });
 
-export default async function BookingArea() {
-	const areasAvailable = Object.values(
-		await fetchData(endpoint + "/available-spots"),
-	).filter((key) => {
-		return key.available != 0;
-	});
+export default function BookingArea() {
+	// const areasAvailable = Object.values(
+	// 	fetchData(endpoint + "/available-spots"),
+	// ).filter((key) => {
+	// 	return key.available != 0;
+	// });
+	const [stateendpoint] = useState(endpoint);
+	const [areasAvailable, setAreasAvailable] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
+	const [guestTentsMatch, setGuestTentsMatch] = useState(false);
+	const [guests, setGuests] = useState(0);
+	const [vips, setVips] = useState(0);
+	const [twopers, setTwopers] = useState(0);
+	const [threepers, setthreepers] = useState(0);
 
-	console.log(areasAvailable);
-
-	async function submitForm(formData) {
-		"use server";
-
-		const rawFormData = {
-			greencamping: formData.get("greencamping"),
-			area: formData.get("area"),
-			guests: parseInt(formData.get("guests")),
-			twopersontents: parseInt(formData.get("tent-2")),
-			threepersontents: parseInt(formData.get("tent-3")),
-		};
-		async function reserveSpot(data) {
-			"use server";
-			const response = await fetch(endpoint + "/reserve-spot", {
-				method: "PUT",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					area: data.area,
-					amount: data.guests,
-				}),
-			});
-
-			async function uploadData(data, id) {
-				data.randomid = id;
-				console.log(data);
-				const response = await fetch(databaseTestEndport, {
-					method: "POST",
-					headers: headerList,
-					body: JSON.stringify(data),
-				});
-				//------------
-
-				await console.log("Posting ", response, "to database", id);
-				return id;
-			}
-			const reserveData = await response.json();
-			return uploadData(rawFormData, reserveData.id);
+	function handleGuests(e) {
+		setGuests(parseInt(e.target.value));
+		console.log(typeof guests, guests);
+	}
+	function checkGuests() {
+		if (guests + vips + threepers * 3 + twopers * 2) {
+			setGuestTentsMatch(true);
+			console.log(
+				guestTentsMatch,
+				"Total is",
+				guests + vips + threepers * 3 + twopers * 2,
+			);
 		}
-
-		const id = await reserveSpot(rawFormData);
-		redirect("/booking/bookinginfo?id=" + id);
 	}
 
+	useEffect(() => {
+		const fetchData = async () => {
+			setIsLoading(true); // Set loading state to true (optional)
+			try {
+				const response = await fetch(
+					stateendpoint + "/available-spots",
+				);
+				if (!response.ok) {
+					throw new Error("Network response was not ok");
+				}
+				const data = await response.json();
+				const filteredAreas = Object.values(data).filter(
+					(area) => area.available !== 0,
+				);
+				console.log(filteredAreas);
+				setAreasAvailable(filteredAreas);
+			} catch (error) {
+				console.error("Error fetching data:", error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchData();
+
+		return () => {};
+	}, [stateendpoint]);
+	const { pending } = useFormStatus();
 	return (
 		<form
+			onChange={checkGuests}
 			action={submitForm}
-			className="p-8 border max-w-screen-sm flex flex-col items-center "
+			className="p-8 border max-w-screen-sm flex flex-col items-center [&>*]:w-full"
 		>
-			<div className="m-4 p-4 border flex flex-col">
-				<label htmlFor="greencamping">Green Camping (+249)</label>
-				<input type="checkbox" name="greencamping" id="greencamping" />
-			</div>
-
-			<div className="m-4 p-4 border flex flex-col">
+			<div className="m-4 p-4 border flex flex-col ">
 				<label htmlFor="area">Area</label>
-				<select className="text-black" name="area" id="area">
+				<select required className="text-black" name="area" id="area">
 					{Object.values(areasAvailable).map((area) => (
 						<option
 							className="p-2"
 							key={area.area}
 							value={area.area}
 						>
-							{area.area}
+							{area.area} ({area.available} Spots left)
 						</option>
 					))}
 				</select>
 			</div>
 			<div className="m-4 p-4 border flex flex-col">
-				<label htmlFor="guests">Guests</label>
-				<select
-					className="text-black [&>*]:p-2"
+				<label htmlFor="guests">
+					Guests <span className="text-xs">(799,- per guest)</span>
+				</label>
+				<input
+					onChange={handleGuests}
+					type="number"
+					required
+					className="text-black mb-2 p-2 rounded-md"
 					name="guests"
 					id="guests"
-				>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-				</select>
-			</div>
-			<div className="m-4 p-4 border">
-				<fieldset>
-					<legend className="flex flex-col">
-						<label htmlFor="tent-2">Setup 2 person tents</label>
-						<select
-							className="text-black [&>*]:p-2"
-							name="tent-2"
-							id="tent-2"
-						>
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-						</select>
-						<label htmlFor="tent-3">Setup 3 person tents</label>
-						<select
-							className="text-black [&>*]:p-2"
-							name="tent-3"
-							id="tent-3"
-						>
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-						</select>
-					</legend>
-				</fieldset>
-			</div>
-			<div className="m-4 p-4 border">
+					placeholder="Number of guests"
+					min={0}
+					max={10}
+				></input>
+				<label htmlFor="vipguests">
+					VIP Guests{" "}
+					<span className="text-xs">(1299,- per guest)</span>
+				</label>
 				<input
-					className="border p-4 cursor-pointer"
-					type="submit"
-					value="Submit"
-				/>
+					onChange={handleGuests}
+					type="number"
+					required
+					className="text-black mb-2 p-2 rounded-md"
+					name="vipguests"
+					id="vipguests"
+					placeholder="Number of VIPs"
+					min={0}
+					max={10}
+				></input>
 			</div>
+			<div className="m-4 p-4 border flex flex-col">
+				<label htmlFor="tent-2">
+					Setup 2 person tents{" "}
+					<span className="text-xs">(299,- per)</span>
+				</label>
+				<input
+					type="number"
+					required
+					className="text-black mb-2 p-2  rounded-md"
+					name="tent-2"
+					id="tent-2"
+					placeholder="Number of tents.."
+					min={0}
+					max={10}
+				></input>
+				<label htmlFor="tent-3">
+					Setup 3 person tents{" "}
+					<span className="text-xs">(399,- per)</span>
+				</label>
+				<input
+					type="number"
+					required
+					className="text-black mb-2 p-2 k rounded-md w-full"
+					name="tent-3"
+					id="tent-3"
+					placeholder="Number of tents.."
+					min={0}
+					max={10}
+				></input>
+			</div>
+			<div className="m-4 p-4 border flex flex-col">
+				<label htmlFor="greencamping">Green Camping (+249)</label>
+				<input type="checkbox" name="greencamping" id="greencamping" />
+			</div>
+
+			<input
+				aria-disabled={pending}
+				className="border p-4 cursor-pointer"
+				type="submit"
+				value="Submit"
+			/>
 		</form>
 	);
 }
