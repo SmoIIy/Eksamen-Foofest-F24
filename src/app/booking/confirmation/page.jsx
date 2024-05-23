@@ -8,7 +8,7 @@ export default function Confirmation({ searchParams }) {
 	return (
 		<main>
 			<h1>Confirmation</h1>
-			<Link href="/schedule">Check out what bands are comming!</Link>
+			<Link href="/schedule">Check out what bands are cumming!</Link>
 		</main>
 	);
 }

@@ -1,10 +1,12 @@
-import { handleReservation } from "../modules/actions";
+"use client";
+import { handleReservation } from "../modules/handleres";
 
 export default function BookingPersonal({ extras, id }) {
 	let extrasarray = [];
 	for (let i = 1; i <= extras - 1; i++) {
 		extrasarray.push("n");
 	}
+
 	console.log("extras is ", extras, extrasarray);
 	return (
 		<section className="p-8 border max-w-screen-sm flex flex-col items-center rounded-lg">
@@ -59,6 +61,12 @@ export default function BookingPersonal({ extras, id }) {
 				<div>
 					{extrasarray && extrasarray.length >= 1 && (
 						<div className="flex flex-col p-4 [&>*:nth-child(even)]:mb-2">
+							<input
+								name="extraarray"
+								className="sr-only"
+								value={extras - 1}
+								readOnly
+							/>
 							<h2 className="text-lg font-bold">
 								Extra persons names
 							</h2>

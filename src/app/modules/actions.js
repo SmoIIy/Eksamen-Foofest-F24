@@ -59,29 +59,31 @@ export async function submitForm(formData) {
 // ).filter((key) => {
 // 	return key.available != 0;
 // });
-export async function handleReservation(formData) {
-	"use server";
-	let expraPersons = [];
-	console.log(formData.getAll(`extraname`));
-	const rawFormData = {
-		firstname: formData.get("firstname"),
-		lastname: formData.get("lastname"),
-		email: formData.get("email"),
-		phone: formData.get("phone"),
-	};
-	const id = formData.get("id");
-	const responseRes = await fetch(endpoint + "/fullfill-reservation", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: {
-			id: id,
-		},
-	});
-	const resFinal = await responseRes.text();
-	//console.log("resFinal is", resFinal);
+// export async function handleReservation(formData) {
+// 	"use server";
+// 	let expraPersons = [];
 
-	console.log(rawFormData, id);
-	redirect("/booking/confirmation?randomid=eq." + id);
-}
+// 	console.log(formData.getAll(`extraname`));
+// 	const rawFormData = {
+// 		firstname: formData.get("firstname"),
+// 		lastname: formData.get("lastname"),
+// 		email: formData.get("email"),
+// 		phone: formData.get("phone"),
+
+// 	};
+// 	const id = formData.get("id");
+// 	const responseRes = await fetch(endpoint + "/fullfill-reservation", {
+// 		method: "POST",
+// 		headers: {
+// 			"Content-Type": "application/json",
+// 		},
+// 		body: {
+// 			id: id,
+// 		},
+// 	});
+// 	const resFinal = await responseRes.text();
+// 	//console.log("resFinal is", resFinal);
+
+// 	console.log(rawFormData, id);
+// 	redirect("/booking/confirmation?randomid=eq." + id);
+// }
