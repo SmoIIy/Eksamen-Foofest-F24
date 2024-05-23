@@ -13,7 +13,7 @@ export default function BandCard({ name, img, alt, slug }) {
         <h2 className="text-xl font-semibold mb-2">{name}</h2>
         <div className="aspect-w-16 aspect-h-9">
           <Image
-            src="https://source.unsplash.com/random/720x480?random=35372"
+            src={`http://localhost:8080/logos/${img}`}
             width={500}
             height={500}
             alt="test testensen"

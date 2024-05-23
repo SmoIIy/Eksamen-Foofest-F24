@@ -7,12 +7,12 @@ export default function BandDetail({ band }) {
       <p>Genre: {band.genre}</p>
       <p>Members: {band.members.join(", ")}</p>
       <p>{band.bio}</p>
-      {/* <Image
-        src={`/images/${band.logo}`}
+      <Image
+        src={`http://localhost:8080/logos/${band.logo}`}
         width={500}
         height={500}
         alt={band.name}
-      /> */}
+      />
     </div>
   );
 }
