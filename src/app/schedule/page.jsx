@@ -57,9 +57,11 @@ function Schedule() {
                                     <div>
                                         {event.start} - {event.end}
                                     </div>
+									{/* ---------- det er det her der driller ------ */}
                                     <Link href={`/lineup/${slug}`}>
                                         {event.act}
                                     </Link>
+									{/* ---------- det er det her der driller ------ */}
                                     {event.cancelled ? "(Cancelled)" : ""}
                                 </li>
                             ))}
