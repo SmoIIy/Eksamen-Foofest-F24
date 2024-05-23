@@ -3,12 +3,6 @@ import { fetchData } from "@/app/modules/functions";
 import { endpoint } from "@/app/modules/settings";
 import BandCard from "@/app/components/BandCard";
 
-
-
-
-
-
-
 export default async function Lineup() {
 
     const data = await fetchData(endpoint + "/bands");
@@ -16,7 +10,10 @@ export default async function Lineup() {
 <ul>
      {Object.keys(data).map(key =>
                 <li key={key}>
-                <BandCard name={data[key].name} img={data[key].logo} slug={data[key].slug}/>
+                <BandCard 
+                name={data[key].name}
+                img={data[key].logo} 
+                slug={data[key].slug}/>
                 </li>
             )} 
 </ul>
