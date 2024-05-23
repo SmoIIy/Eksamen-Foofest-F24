@@ -2,14 +2,14 @@ import { handleReservation } from "../modules/actions";
 
 export default function BookingPersonal({ extras, id }) {
 	let extrasarray = [];
-	for (let i = 1; i <= extras; i++) {
+	for (let i = 1; i <= extras - 1; i++) {
 		extrasarray.push("n");
 	}
 	console.log("extras is ", extras, extrasarray);
 	return (
 		<section className="p-8 border max-w-screen-sm flex flex-col items-center rounded-lg">
 			<h1>Personal Info</h1>
-			<form className="border" action={handleReservation(id)}>
+			<form className="border" action={handleReservation}>
 				<div className="flex flex-col p-4 [&>*:nth-child(even)]:mb-2">
 					<label htmlFor="firstname">First Name*</label>
 					<input
@@ -43,7 +43,12 @@ export default function BookingPersonal({ extras, id }) {
 						id="phone"
 						required
 					/>
-					<input type="text" className="sr-only" value={id} />
+					<input
+						type="text"
+						name="id"
+						className="sr-only"
+						value={id}
+					/>
 					<input
 						className="w-full bg-white text-black py-2 rounded-md hover:bg-slate-800 hover:text-white transition-all cursor-pointer"
 						type="submit"
@@ -51,7 +56,7 @@ export default function BookingPersonal({ extras, id }) {
 					/>
 				</div>
 				<div>
-					{extrasarray && extrasarray.length > 1 && (
+					{extrasarray && extrasarray.length >= 1 && (
 						<div className="flex flex-col p-4 [&>*:nth-child(even)]:mb-2">
 							<h2 className="text-lg font-bold">
 								Extra persons names

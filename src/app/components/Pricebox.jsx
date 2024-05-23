@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Pricebox(props) {
+export default function Pricebox(props = {}) {
 	console.log("Props ", props.props);
 	const [vips, setVips] = useState(props.props.vipguests);
 	console.log(vips);
