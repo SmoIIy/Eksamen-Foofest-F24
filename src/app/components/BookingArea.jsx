@@ -92,7 +92,7 @@ export default function BookingArea() {
 							key={area.area}
 							value={area.area}
 						>
-							{area.area} {area.available} Spots left
+							{area.area} ({area.available} Spots left)
 						</option>
 					))}
 				</select>
@@ -105,7 +105,7 @@ export default function BookingArea() {
 					onChange={handleGuests}
 					type="number"
 					required
-					className="text-black mb-2"
+					className="text-black mb-2 p-2 rounded-md"
 					name="guests"
 					id="guests"
 					placeholder="Number of guests"
@@ -120,7 +120,7 @@ export default function BookingArea() {
 					onChange={handleGuests}
 					type="number"
 					required
-					className="text-black mb-2"
+					className="text-black mb-2 p-2 rounded-md"
 					name="vipguests"
 					id="vipguests"
 					placeholder="Number of VIPs"
@@ -128,33 +128,35 @@ export default function BookingArea() {
 					max={10}
 				></input>
 			</div>
-			<div className="m-4 p-4 border">
-				<fieldset>
-					<legend className="flex flex-col">
-						<label htmlFor="tent-2">Setup 2 person tents</label>
-						<input
-							type="number"
-							required
-							className="text-black "
-							name="tent-2"
-							id="tent-2"
-							placeholder="Number of tents.."
-							min={0}
-							max={10}
-						></input>
-						<label htmlFor="tent-3">Setup 3 person tents</label>
-						<input
-							type="number"
-							required
-							className="text-black "
-							name="tent-3"
-							id="tent-3"
-							placeholder="Number of tents.."
-							min={0}
-							max={10}
-						></input>
-					</legend>
-				</fieldset>
+			<div className="m-4 p-4 border flex flex-col">
+				<label htmlFor="tent-2">
+					Setup 2 person tents{" "}
+					<span className="text-xs">(299,- per)</span>
+				</label>
+				<input
+					type="number"
+					required
+					className="text-black mb-2 p-2  rounded-md"
+					name="tent-2"
+					id="tent-2"
+					placeholder="Number of tents.."
+					min={0}
+					max={10}
+				></input>
+				<label htmlFor="tent-3">
+					Setup 3 person tents{" "}
+					<span className="text-xs">(399,- per)</span>
+				</label>
+				<input
+					type="number"
+					required
+					className="text-black mb-2 p-2 k rounded-md w-full"
+					name="tent-3"
+					id="tent-3"
+					placeholder="Number of tents.."
+					min={0}
+					max={10}
+				></input>
 			</div>
 			<div className="m-4 p-4 border flex flex-col">
 				<label htmlFor="greencamping">Green Camping (+249)</label>

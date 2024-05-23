@@ -59,3 +59,12 @@ export async function submitForm(formData) {
 // ).filter((key) => {
 // 	return key.available != 0;
 // });
+export async function handleReservation(formData, id) {
+	"use server";
+	const rawFormData = {
+		firstname: formData.get("firstname"),
+	};
+
+	console.log(rawFormData, id);
+	redirect("/booking/confirmation");
+}

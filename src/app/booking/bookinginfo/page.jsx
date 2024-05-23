@@ -12,12 +12,13 @@ export default async function bookingInfo({ searchParams }) {
 		headers: headerList,
 	});
 	const priceData = await response.json();
-	console.log(priceData);
+	console.log("pricedata is ", priceData);
 
 	return (
 		<main className="flex m-auto w-full justify-around">
 			<BookingPersonal
 				extras={priceData[0].guests + priceData[0].vipguests}
+				id={priceData[0].randomid}
 			/>
 			<Pricebox props={priceData[0]} />
 		</main>

@@ -1,4 +1,6 @@
-export default function BookingPersonal({ extras }) {
+import { handleReservation } from "../modules/actions";
+
+export default function BookingPersonal({ extras, id }) {
 	let extrasarray = [];
 	for (let i = 1; i <= extras; i++) {
 		extrasarray.push("n");
@@ -7,7 +9,7 @@ export default function BookingPersonal({ extras }) {
 	return (
 		<section className="p-8 border max-w-screen-sm flex flex-col items-center rounded-lg">
 			<h1>Personal Info</h1>
-			<form className="border" action="">
+			<form className="border" action={handleReservation(id)}>
 				<div className="flex flex-col p-4 [&>*:nth-child(even)]:mb-2">
 					<label htmlFor="firstname">First Name*</label>
 					<input
@@ -41,7 +43,7 @@ export default function BookingPersonal({ extras }) {
 						id="phone"
 						required
 					/>
-
+					<input type="text" className="sr-only" value={id} />
 					<input
 						className="w-full bg-white text-black py-2 rounded-md hover:bg-slate-800 hover:text-white transition-all cursor-pointer"
 						type="submit"
@@ -56,13 +58,19 @@ export default function BookingPersonal({ extras }) {
 							</h2>
 							{extrasarray.map((nu, i) => {
 								return (
-									<div key={i} className="flex flex-col ">
-										<label htmlFor={`extraname${i}`}>
+									<div
+										key={i}
+										className="flex flex-col text-sm"
+									>
+										<label
+											className="m-1"
+											htmlFor={`extraname${i}`}
+										>
 											Extra person {i + 1} full name
 										</label>
 										<input
 											required
-											className="p-2 text-black rounded-md"
+											className="p-1 text-black rounded-md"
 											type="text"
 											id={`extraname${i}`}
 											name={`extraname${i}`}
@@ -77,36 +85,3 @@ export default function BookingPersonal({ extras }) {
 		</section>
 	);
 }
-
-{
-	/* <div className="flex flex-col">
-
-	<label htmlFor="firstname">Extra Name*</label>
-	<input
-		className="p-2 text-black rounded-md"
-		type="text"
-		name="firstname"
-		id="firstname"
-		required
-	/>
-</div>; */
-}
-
-// {extrasarray && extrasarray.length > 1 && (
-//     <h2 className="font-bold">Name on extra guests</h2>
-//     {extrasarray.map((nu, i) => {
-//         return (
-//             <div className="flex flex-col">
-
-//             <label htmlFor="firstname">Extra Name*</label>
-//             <input
-//                 className="p-2 text-black rounded-md"
-//                 type="text"
-//                 name="firstname"
-//                 id="firstname"
-//                 required
-//             />
-//         </div>;
-//         )
-//     })}
-// )}
