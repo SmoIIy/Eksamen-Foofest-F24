@@ -17,8 +17,26 @@ export default async function Landingpage() {
 	height={500}
 	alt="FooFest logo"
 	>
-	
 	</Image>
+
+
+	<Image
+	src="https://mgp-allstars-2009-server.glitch.me/logos/640px-GNR_London_Stadium_2017_3_(cropped).jpg"
+	width={500}
+	height={500}
+	alt="FooFest logo2"
+	>
+	</Image>
+
+	<Image
+	src="http://localhost:8080/logos/640px-GNR_London_Stadium_2017_3_(cropped).jpg"
+	width={500}
+	height={500}
+	alt="FooFest logo3"
+	>
+	</Image>
+
+
 	<p>12 AUGUST 2024</p>
 </div>
 	);
