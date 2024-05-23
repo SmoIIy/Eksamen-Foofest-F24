@@ -48,6 +48,7 @@ export default function BookingPersonal({ extras, id }) {
 						name="id"
 						className="sr-only"
 						value={id}
+						readOnly
 					/>
 					<input
 						className="w-full bg-white text-black py-2 rounded-md hover:bg-slate-800 hover:text-white transition-all cursor-pointer"

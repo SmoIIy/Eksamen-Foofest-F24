@@ -61,6 +61,8 @@ export async function submitForm(formData) {
 // });
 export async function handleReservation(formData) {
 	"use server";
+	let expraPersons = [];
+	console.log(formData.getAll(`extraname`));
 	const rawFormData = {
 		firstname: formData.get("firstname"),
 		lastname: formData.get("lastname"),
