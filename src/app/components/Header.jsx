@@ -3,7 +3,7 @@ import Link from "next/link";
 import logo from "@/app/assets/logos/small-color.svg";
 export default function Header() {
 	return (
-		<header className="bg-black-blue flex w-full justify-between text-white py-4 text-center absolute z-10 max-h-28 items-center">
+		<header className="bg-black-blue flex w-full justify-between text-white py-4 text-center z-10 max-h-28 items-center">
 			<Link className="mx-auto" href="/">
 				<Image
 					className="object-cover "
