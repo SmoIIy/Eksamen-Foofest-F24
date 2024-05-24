@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/app/assets/logos/logo-simple-color.png";
+import logo from "@/app/assets/logos/small-color.svg";
 export default function Header() {
 	return (
 		<header className="bg-black-blue flex w-full text-white py-4 text-center absolute z-10 max-h-28 items-center">
