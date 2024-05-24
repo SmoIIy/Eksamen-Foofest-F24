@@ -1,6 +1,7 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Header from "./components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -17,23 +18,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className="h-full">
-			<body
-				className={`flex flex-col min-h-screen h-full ${poppins.className}`}
-			>
-				<div className="flex-grow flex flex-col">
-					<header className="bg-black-blue text-white py-4 text-center">
-						<nav className="flex justify-around max-w-xl m-auto">
-							<Link href="/">Home</Link>
-							<Link href="/booking">Booking</Link>
-							<Link href="/schedule">Schedule</Link>
-							<Link href="/lineup">Lineup</Link>
-						</nav>
-					</header>
+			<body className={`flex flex-col min-h-screen ${poppins.className}`}>
+				<Header />
 
-					<main className="flex-grow">{children}</main>
-				</div>
-
-				<footer className="bg-black-blue text-white py-4 text-center">
+				<main className="flex-grow">{children}</main>
+				<footer className="bg-black-blue text-white py-4 text-center absolute bottom-0 w-full">
 					<p>FooFest 2024</p>
 				</footer>
 			</body>
