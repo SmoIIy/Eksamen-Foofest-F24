@@ -22,7 +22,7 @@ module.exports = {
 				"main-yellow": "#f2d027",
 			},
 			fontFamily: {
-				"taurunum-ferrum": ["taurunum-ferrum-iron", "sans-serif"],
+				Header: ["taurunum-ferrum-iron", "sans-serif"],
 			},
 		},
 	},
