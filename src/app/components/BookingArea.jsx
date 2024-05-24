@@ -83,6 +83,7 @@ export default function BookingArea() {
 			action={submitForm}
 			className="p-8 border max-w-screen-sm flex flex-col items-center [&>*]:w-full"
 		>
+			<h1 className="font-Header-font">Cock and balls</h1>
 			<div className="m-4 p-4 border flex flex-col ">
 				<label htmlFor="area">Area</label>
 				<select required className="text-black" name="area" id="area">
@@ -97,7 +98,7 @@ export default function BookingArea() {
 					))}
 				</select>
 			</div>
-			<div className="m-4 p-4 border flex flex-col">
+			<div className="m-4 p-4 border grid">
 				<label htmlFor="guests">
 					Guests <span className="text-xs">(799,- per guest)</span>
 				</label>
@@ -158,9 +159,19 @@ export default function BookingArea() {
 					max={10}
 				></input>
 			</div>
-			<div className="m-4 p-4 border flex flex-col">
-				<label htmlFor="greencamping">Green Camping (+249)</label>
-				<input type="checkbox" name="greencamping" id="greencamping" />
+			<div className="m-4 p-4 border items-center border-gray-200 flex rounded">
+				<input
+					className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+					type="checkbox"
+					name="greencamping"
+					id="greencamping"
+				/>
+				<label
+					className="w-full py-4 ms-2 text-sm font-medium text-gray-200"
+					htmlFor="greencamping"
+				>
+					Green Camping Option(+249)
+				</label>
 			</div>
 
 			<input
