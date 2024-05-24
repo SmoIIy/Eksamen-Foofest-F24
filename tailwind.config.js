@@ -21,6 +21,9 @@ module.exports = {
         "main-orange": "#e95d39",
         "main-yellow": "#f2d027",
       },
+      fontFamily: {
+        'taurunum-ferrum': ['taurunum-ferrum-iron', 'sans-serif'],
+      }
     },
   },
   plugins: [],
