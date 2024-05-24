@@ -85,6 +85,15 @@ export default function BookingArea() {
 			action={submitForm}
 			className="p-8 max-w-screen-sm grid bg-black-blue gap-6 md:grid-cols-2 items-center [&>*]:w-full [&>*]:h-full"
 		>
+			<div className="text-white">
+				<h2>Title</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					Ipsa, amet autem facere ab tenetur tempore quas,
+					perspiciatis fugit consequuntur eos, laboriosam ad ipsum
+					facilis! Illo voluptas sint dolores perferendis vel!
+				</p>
+			</div>
 			<div className="[&>*]:rounded">
 				<div className="my-4 p-4 border flex flex-col  ">
 					<label className="label" htmlFor="area">
@@ -184,9 +193,6 @@ export default function BookingArea() {
 					type="submit"
 					value="Submit"
 				/>
-			</div>
-			<div className="grid place-items-center">
-				<Image className="rotate-90" src={picture} alt="logo"></Image>
 			</div>
 		</form>
 	);
