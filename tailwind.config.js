@@ -1,7 +1,3 @@
-const {
-	R,
-} = require("@tanstack/react-query-devtools/build/legacy/devtools-PtxSnd7z");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [

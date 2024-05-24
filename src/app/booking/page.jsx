@@ -10,6 +10,7 @@ export default async function Booking() {
 	return (
 		<main className="flex m-auto w-full justify-around">
 			<BookingArea />
+			<h1 className="">cock and balls</h1>
 		</main>
 	);
 }
