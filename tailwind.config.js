@@ -1,3 +1,7 @@
+const {
+	R,
+} = require("@tanstack/react-query-devtools/build/legacy/devtools-PtxSnd7z");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
@@ -22,7 +26,7 @@ module.exports = {
 				"main-yellow": "#f2d027",
 			},
 			fontFamily: {
-				Header: ["taurunum-ferrum-iron", "sans-serif"],
+				"Header-font": ["taurunum-ferrum-iron", "sans-serif"],
 			},
 		},
 	},
