@@ -17,12 +17,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en" className="h-full">
-			<body className={`flex flex-col min-h-screen ${poppins.className}`}>
+		<html lang="en" className="min-h-full">
+			<body className={`flex flex-col min-h-full ${poppins.className}`}>
 				<Header />
 
 				<main className="flex-grow">{children}</main>
-				<footer className="bg-black-blue text-white py-4 text-center absolute bottom-0 w-full">
+				<footer className="bg-black-blue text-white py-4 text-center w-full">
 					<p>FooFest 2024</p>
 				</footer>
 			</body>

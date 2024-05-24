@@ -25,6 +25,8 @@ body {
 		rgba(4, 23, 55, 1) 66%,
 		rgba(2, 12, 28, 1) 100%
 	);
+	background-repeat: no-repeat;
+	background-size: 300%;
 }
 
 @layer utilities {
