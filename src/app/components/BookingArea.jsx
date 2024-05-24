@@ -11,6 +11,8 @@ import {
 import { areasAvailable, submitForm } from "../modules/actions";
 import { useEffect, useState } from "react";
 import { FormProvider } from "react-hook-form";
+import Image from "next/image";
+import picture from "@/app/assets/logos/full-color.svg";
 //TODO FIX AREAS AVAILABLE
 //FOR LOOP MAYBE?
 // const response = await fetch(databaseTestEndport, {
@@ -81,105 +83,111 @@ export default function BookingArea() {
 		<form
 			onChange={checkGuests}
 			action={submitForm}
-			className="p-8 border max-w-screen-sm flex flex-col items-center [&>*]:w-full"
+			className="p-8 max-w-screen-sm grid bg-black-blue gap-6 md:grid-cols-2 items-center [&>*]:w-full [&>*]:h-full"
 		>
-			<h1 className="font-Header-font">Cock and balls</h1>
-			<div className="m-4 p-4 border flex flex-col ">
-				<label htmlFor="area">Area</label>
-				<select required className="text-black" name="area" id="area">
-					{Object.values(areasAvailable).map((area) => (
-						<option
-							className="p-2"
-							key={area.area}
-							value={area.area}
-						>
-							{area.area} ({area.available} Spots left)
-						</option>
-					))}
-				</select>
-			</div>
-			<div className="m-4 p-4 border grid">
-				<label htmlFor="guests">
-					Guests <span className="text-xs">(799,- per guest)</span>
-				</label>
+			<div className="[&>*]:rounded">
+				<div className="my-4 p-4 border flex flex-col  ">
+					<label className="label" htmlFor="area">
+						Area
+					</label>
+					<select required className="input" name="area" id="area">
+						{Object.values(areasAvailable).map((area) => (
+							<option
+								className="p-2"
+								key={area.area}
+								value={area.area}
+							>
+								{area.area} ({area.available} Spots left)
+							</option>
+						))}
+					</select>
+				</div>
+				<div className="my-4 p-4 border flex flex-col">
+					<label className="label" htmlFor="guests">
+						Guests{" "}
+						<span className="text-xs">(799,- per guest)</span>
+					</label>
+					<input
+						onChange={handleGuests}
+						type="number"
+						required
+						className="input"
+						name="guests"
+						id="guests"
+						placeholder="Number of guests"
+						min={0}
+						max={10}
+					></input>
+					<label className="label" htmlFor="vipguests">
+						VIP Guests{" "}
+						<span className="text-xs">(1299,- per guest)</span>
+					</label>
+					<input
+						onChange={handleGuests}
+						type="number"
+						required
+						className="input"
+						name="vipguests"
+						id="vipguests"
+						placeholder="Number of VIPs"
+						min={0}
+						max={10}
+					></input>
+				</div>
+				<div className="my-4 p-4 border flex flex-col">
+					<label className="label" htmlFor="tent-2">
+						Setup 2 person tents{" "}
+						<span className="text-xs">(299,- per)</span>
+					</label>
+					<input
+						type="number"
+						required
+						className="input"
+						name="tent-2"
+						id="tent-2"
+						placeholder="Number of tents.."
+						min={0}
+						max={10}
+					></input>
+					<label className="label" htmlFor="tent-3">
+						Setup 3 person tents{" "}
+						<span className="text-xs">(399,- per)</span>
+					</label>
+					<input
+						type="number"
+						required
+						className="input"
+						name="tent-3"
+						id="tent-3"
+						placeholder="Number of tents.."
+						min={0}
+						max={10}
+					></input>
+				</div>
+				<div className="my-4 p-4 border items-center border-gray-200 flex rounded">
+					<input
+						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						type="checkbox"
+						name="greencamping"
+						id="greencamping"
+					/>
+					<label
+						className="w-full py-4 ms-2 text-sm font-medium text-gray-200"
+						htmlFor="greencamping"
+					>
+						Green Camping Option(+249)
+					</label>
+				</div>
 				<input
-					onChange={handleGuests}
-					type="number"
-					required
-					className="text-black mb-2 p-2 rounded-md"
-					name="guests"
-					id="guests"
-					placeholder="Number of guests"
-					min={0}
-					max={10}
-				></input>
-				<label htmlFor="vipguests">
-					VIP Guests{" "}
-					<span className="text-xs">(1299,- per guest)</span>
-				</label>
-				<input
-					onChange={handleGuests}
-					type="number"
-					required
-					className="text-black mb-2 p-2 rounded-md"
-					name="vipguests"
-					id="vipguests"
-					placeholder="Number of VIPs"
-					min={0}
-					max={10}
-				></input>
-			</div>
-			<div className="m-4 p-4 border flex flex-col">
-				<label htmlFor="tent-2">
-					Setup 2 person tents{" "}
-					<span className="text-xs">(299,- per)</span>
-				</label>
-				<input
-					type="number"
-					required
-					className="text-black mb-2 p-2  rounded-md"
-					name="tent-2"
-					id="tent-2"
-					placeholder="Number of tents.."
-					min={0}
-					max={10}
-				></input>
-				<label htmlFor="tent-3">
-					Setup 3 person tents{" "}
-					<span className="text-xs">(399,- per)</span>
-				</label>
-				<input
-					type="number"
-					required
-					className="text-black mb-2 p-2 k rounded-md w-full"
-					name="tent-3"
-					id="tent-3"
-					placeholder="Number of tents.."
-					min={0}
-					max={10}
-				></input>
-			</div>
-			<div className="m-4 p-4 border items-center border-gray-200 flex rounded">
-				<input
-					className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-					type="checkbox"
-					name="greencamping"
-					id="greencamping"
+					aria-disabled={pending}
+					className="button w-full px-4"
+					type="submit"
+					value="Submit"
 				/>
-				<label
-					className="w-full py-4 ms-2 text-sm font-medium text-gray-200"
-					htmlFor="greencamping"
-				>
-					Green Camping Option(+249)
-				</label>
 			</div>
-
-			<input
-				aria-disabled={pending}
-				className="border p-4 cursor-pointer"
-				type="submit"
-				value="Submit"
-			/>
+			<div className="grid place-items-center">
+				<Image className="rotate-90" src={picture} alt="logo"></Image>
+			</div>
 		</form>
 	);
 }
