@@ -30,9 +30,15 @@ export async function handleReservation(formData) {
 			id: id,
 		},
 	});
+
 	const resFinal = await responseRes.text();
 	//console.log("resFinal is", resFinal);
-
-	console.log(rawFormData, id);
+	const uploadData = await fetch(databaseTestEndport + "?randomid=eq." + id, {
+		method: "PATCH",
+		headers: headerList,
+		body: JSON.stringify(rawFormData),
+	});
+	const dataFinal = await uploadData.json();
+	console.log(rawFormData, dataFinal);
 	redirect("/booking/payment?randomid=eq." + id);
 }

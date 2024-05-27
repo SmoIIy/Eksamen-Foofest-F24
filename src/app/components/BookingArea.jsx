@@ -169,7 +169,7 @@ export default function BookingArea() {
 									tents must match the amount of guests
 								</p>
 							}
-							delay={1000}
+							delay={500}
 						>
 							<span className="text-white bg-main-orange rounded-full px-2 cursor-default">
 								&#63;

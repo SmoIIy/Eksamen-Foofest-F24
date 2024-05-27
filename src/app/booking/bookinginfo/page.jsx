@@ -25,7 +25,7 @@ export default async function bookingInfo({ searchParams }) {
 				<Pricebox props={priceData[0]} />
 				<article className="bg-black-blue mt-6 rounded-lg text-white p-4">
 					<h2 className="text-xl text-center font-bold">Payment</h2>
-					<div class="my-6 flex items-center justify-center gap-8">
+					<div className="my-6 flex items-center justify-center gap-8">
 						<Image
 							className="h-8 w-auto"
 							src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/brand-logos/paypal.svg"
