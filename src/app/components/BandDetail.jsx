@@ -6,7 +6,7 @@ export default function BandDetail({ band }) {
 			<div className="relative">
 				<div className="w-full h-96 md:h-[600px] overflow-hidden">
 					<Image
-						src={`http://localhost:8080/logos/${band.logo}`}
+						src={`https://mgp-allstars-2009-server.glitch.me/logos/${band.logo}`}
 						layout="fill"
 						objectFit="cover"
 						alt={band.name}

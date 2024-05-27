@@ -7,7 +7,7 @@ export default function BandCard({ name, img, slug }) {
 			<Link href={`/lineup/${slug}`} className="block">
 				<div className="relative w-full aspect-w-1 aspect-h-1">
 					<Image
-						src={`http://localhost:8080/logos/${img}`}
+						src={`https://mgp-allstars-2009-server.glitch.me/logos/${img}`}
 						layout="fill"
 						objectFit="cover"
 						alt={name}
