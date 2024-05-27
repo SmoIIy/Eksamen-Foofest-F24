@@ -7,7 +7,6 @@ import background from "@/app/assets/images/bg.png";
 import Heroimage from "../components/Heroimage";
 
 export default async function Landingpage() {
-	const data = await fetchData(endpoint + "/bands");
 	return (
 		<div className="grid place-items-center grid-cols-1">
 			<Image
