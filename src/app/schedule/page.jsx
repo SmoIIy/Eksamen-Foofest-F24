@@ -8,7 +8,6 @@ import {
 import { fetchData } from "@/app/modules/functions";
 import { endpoint } from "@/app/modules/settings";
 import Link from "next/link";
-import logoWall from "@/app/assets/logos/logowall.svg";
 import Image from "next/image";
 
 const queryClient = new QueryClient();
@@ -105,7 +104,7 @@ function Schedule() {
 						),
 					)}
 				</div>
-				<div className="bg-logo-pattern"></div>
+				<div className="bg-logo-pattern bg-50% my-10 opacity-50"></div>
 			</div>
 		</div>
 	);
