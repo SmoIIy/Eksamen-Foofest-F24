@@ -18,11 +18,11 @@ export default function Pricebox(props = {}) {
 		threepers * 399 +
 		99;
 	return (
-		<section className="text-white min-w-96 border rounded-lg overflow-hidden flex flex-col [&>*+*]:ml-4 [&>*+*]:mx-4 h-fit ">
-			<div className="bg-white text-black flex items-center justify-center font-bold h-16 w-full mb-4">
+		<section className="text-white bg-black-blue min-w-96 shadow-md rounded-lg overflow-hidden flex flex-col [&>*+*]:ml-4 [&>*+*]:mx-4 h-fit ">
+			<div className="bg-main-orange text-white flex items-center justify-center font-bold h-16 w-full mb-4">
 				<h2 className="m-auto text-xl">Overview</h2>
 			</div>
-			<div className="pb-4 mb-4 border-b-2">
+			<div className="pb-4 mb-4 border-b-2 border-main-orange">
 				<p className="">
 					Area Selected: <span> {props.props.area}</span>
 				</p>
@@ -34,7 +34,7 @@ export default function Pricebox(props = {}) {
 					VIP Guests: {vips} <span>+{vips * 1299} DKK </span>
 				</p>
 			</div>
-			<div className="pb-4 mb-4 border-b-2">
+			<div className="pb-4 mb-4 border-b-2 border-main-orange">
 				<p className="flex justify-between">
 					Green Camping: {greenCamping ? "Yes" : "No"}{" "}
 					<span>+{greenCamping ? "249" : "0"}DKK</span>
@@ -48,14 +48,19 @@ export default function Pricebox(props = {}) {
 					<span>+{threepers * 399} DKK</span>
 				</p>
 			</div>
-			<div className="pb-4 mb-4 border-b-2">
+			<div className="pb-4 mb-4 border-b-2 border-main-orange">
 				<p className="flex justify-between">
 					Booking Fee: <span>+99 DKK</span>
 				</p>
 			</div>
-			<p className="flex justify-between pb-2 mb-2">
-				Price: <span>{fullPrice} DKK</span>
-			</p>
+			<div className="py-2 mb-4">
+				<p className="flex justify-between">
+					Price:{" "}
+					<span className="underline underline-offset-2">
+						{fullPrice} DKK
+					</span>
+				</p>
+			</div>
 		</section>
 	);
 }

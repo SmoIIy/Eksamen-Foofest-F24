@@ -85,14 +85,16 @@ export default function BookingArea() {
 			action={submitForm}
 			className="p-8 max-w-screen-sm grid bg-black-blue gap-6 md:grid-cols-2 items-center [&>*]:w-full [&>*]:h-full"
 		>
-			<div className="text-white">
-				<h2>Title</h2>
+			<div className="text-white flex flex-col items-center">
+				<h2 className="font-bold text-lg text-left w-full">
+					Practical Information
+				</h2>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Ipsa, amet autem facere ab tenetur tempore quas,
-					perspiciatis fugit consequuntur eos, laboriosam ad ipsum
-					facilis! Illo voluptas sint dolores perferendis vel!
+					Choose which campingsite you want to camp at, how many
+					guests are gonna be present, as well as other information.
+					You will enter personal information on the next page
 				</p>
+				<Image className="my-4" src={picture} alt="logo"></Image>
 			</div>
 			<div className="[&>*]:rounded">
 				<div className="my-4 p-4 border flex flex-col  ">
@@ -116,7 +118,7 @@ export default function BookingArea() {
 						Guests{" "}
 						<span className="text-xs">(799,- per guest)</span>
 					</label>
-					<input
+					<select
 						onChange={handleGuests}
 						type="number"
 						required
@@ -124,14 +126,20 @@ export default function BookingArea() {
 						name="guests"
 						id="guests"
 						placeholder="Number of guests"
-						min={0}
-						max={10}
-					></input>
-					<label className="label" htmlFor="vipguests">
+					>
+						<option value="">-Choose number of guests-</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<label className="label mt-2" htmlFor="vipguests">
 						VIP Guests{" "}
 						<span className="text-xs">(1299,- per guest)</span>
 					</label>
-					<input
+					<select
 						onChange={handleGuests}
 						type="number"
 						required
@@ -139,39 +147,58 @@ export default function BookingArea() {
 						name="vipguests"
 						id="vipguests"
 						placeholder="Number of VIPs"
-						min={0}
-						max={10}
-					></input>
+					>
+						{" "}
+						<option value="">-Choose number of guests-</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
 				</div>
 				<div className="my-4 p-4 border flex flex-col">
 					<label className="label" htmlFor="tent-2">
 						Setup 2 person tents{" "}
 						<span className="text-xs">(299,- per)</span>
 					</label>
-					<input
+					<select
 						type="number"
 						required
 						className="input"
 						name="tent-2"
 						id="tent-2"
-						placeholder="Number of tents.."
-						min={0}
-						max={10}
-					></input>
-					<label className="label" htmlFor="tent-3">
+					>
+						{" "}
+						<option value="">-Choose number of tents-</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<label className="label mt-2" htmlFor="tent-3">
 						Setup 3 person tents{" "}
 						<span className="text-xs">(399,- per)</span>
 					</label>
-					<input
+					<select
 						type="number"
 						required
 						className="input"
 						name="tent-3"
 						id="tent-3"
-						placeholder="Number of tents.."
-						min={0}
-						max={10}
-					></input>
+					>
+						{" "}
+						<option value="">-Choose number of tents-</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
 				</div>
 				<div className="my-4 p-4 border items-center border-gray-200 flex rounded">
 					<input
@@ -191,7 +218,7 @@ export default function BookingArea() {
 					aria-disabled={pending}
 					className="button w-full px-4"
 					type="submit"
-					value="Submit"
+					value="Continue &#8594;"
 				/>
 			</div>
 		</form>

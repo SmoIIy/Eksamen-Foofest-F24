@@ -34,5 +34,5 @@ export async function handleReservation(formData) {
 	//console.log("resFinal is", resFinal);
 
 	console.log(rawFormData, id);
-	redirect("/booking/confirmation?randomid=eq." + id);
+	redirect("/booking/payment?randomid=eq." + id);
 }
