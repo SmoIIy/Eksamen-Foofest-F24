@@ -1,30 +1,26 @@
-import {useQuery, useMutation } from "@tanstack/react-query";
 import { fetchData } from "@/app/modules/functions";
 import { endpoint } from "@/app/modules/settings";
-import Image from "next/image";
-import Link from "next/link";
+import BandCard from "@/app/components/BandCard";
 
-export default function BandCard({ name, img, alt, slug }) {
-  return (
-    <div className="p-4 rounded-md shadow-md mb-4">
-      <Link className="block"
-        href={`/lineup/${slug}`}>
-
-        <h2 className="text-xl font-semibold mb-2">{name}</h2>
-        <div className="aspect-w-16 aspect-h-9">
-          <Image
-            src={`http://localhost:8080/logos/${img}`}
-            width={500}
-            height={500}
-            alt="test testensen"
-        />
-        </div>
-      </Link>
-    </div>
-  );
+export default async function Lineup() {
+	const data = await fetchData(endpoint + "/bands");
+	return (
+		<div className="p-4 bg-black-blue min-h-screen flex justify-center">
+			<div className="w-full max-w-screen-lg">
+				<h1 className="text-6xl font-Header-font text-white font-bold text-center mb-8">
+					Lineup
+				</h1>
+				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+					{Object.keys(data).map((key) => (
+						<BandCard
+							key={key}
+							name={data[key].name}
+							img={data[key].logo}
+							slug={data[key].slug}
+						/>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }
-
-
-
-
-
