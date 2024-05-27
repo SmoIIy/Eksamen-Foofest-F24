@@ -1,30 +1,25 @@
-import {useQuery, useMutation } from "@tanstack/react-query";
-import { fetchData } from "@/app/modules/functions";
-import { endpoint } from "@/app/modules/settings";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function BandCard({ name, img, alt, slug }) {
-  return (
-    <div className="p-4 rounded-md shadow-md mb-4">
-      <Link className="block"
-        href={`/lineup/${slug}`}>
-
-        <h2 className="text-xl font-semibold mb-2">{name}</h2>
-        <div className="aspect-w-16 aspect-h-9">
-          <Image
-            src={`http://localhost:8080/logos/${img}`}
-            width={500}
-            height={500}
-            alt="test testensen"
-        />
-        </div>
-      </Link>
-    </div>
-  );
+export default function BandCard({ name, img, slug }) {
+	return (
+		<div className="relative overflow-hidden rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 bg-dark-purple">
+			<Link href={`/lineup/${slug}`} className="block">
+				<div className="relative w-full aspect-w-1 aspect-h-1">
+					<Image
+						src={`http://localhost:8080/logos/${img}`}
+						layout="fill"
+						objectFit="cover"
+						alt={name}
+						className="hover:scale-105 transition-transform duration-300"
+					/>
+				</div>
+				<div className="absolute bottom-0 left-0 right-0 text-white p-2 text-center">
+					<h2 className="text-lg md:text-xl lg:text-2xl font-semibold">
+						{name}
+					</h2>
+				</div>
+			</Link>
+		</div>
+	);
 }
-
-
-
-
-

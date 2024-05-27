@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/tooltip": "^2.0.34",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tanstack/react-query": "^5.35.1",
     "@tanstack/react-query-devtools": "^5.36.0",
     "next": "14.2.3",
