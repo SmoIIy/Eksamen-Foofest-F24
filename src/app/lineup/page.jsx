@@ -18,6 +18,8 @@ export default async function Lineup() {
 							img={data[key].logo}
 							slug={data[key].slug}
 						/>
+
+						//test
 					))}
 				</div>
 			</div>
