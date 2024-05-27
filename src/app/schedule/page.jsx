@@ -57,7 +57,7 @@ function Schedule() {
 					<button
 						key={scene}
 						onClick={() => setSelectedScene(scene)}
-						className={`px-4 py-2 rounded ${selectedScene === scene ? "bg-blue-500" : "bg-gray-700 hover:bg-gray-600"}`}
+						className={`px-4 py-2 rounded ${selectedScene === scene ? "bg-main-orange" : "bg-main-yellow hover:bg-main-orange"}`}
 					>
 						{scene}
 					</button>
@@ -75,14 +75,14 @@ function Schedule() {
 								{events.map((event, index) => (
 									<li
 										key={index}
-										className="p-4 bg-gray-800 rounded-lg shadow"
+										className="p-4 bg-dark-blue rounded-lg shadow max-w-screen-lg"
 									>
 										<div className="text-lg mb-2">
 											{event.start} - {event.end}
 										</div>
 										<Link
 											href={`/lineup/${event.act.replace(/\s+/g, "-").toLowerCase()}`}
-											className="text-2xl font-bold text-blue-400 hover:text-blue-500 hover:underline"
+											className="text-2xl font-bold text-white hover:text-light-purple"
 										>
 											{event.act}
 										</Link>
