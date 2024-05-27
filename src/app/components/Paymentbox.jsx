@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
-export default function Paymentbox() {
+export default function Paymentbox({ id }) {
 	async function handleSubmit(e) {
 		"use server";
-		alert.e.target();
+
+		redirect("/booking/confirmation?randomid=eq." + id);
 	}
 	return (
-		<div className=" lg:flex lg:gap-12 ">
+		<div className="  ">
 			<form
 				action={handleSubmit}
 				className="w-full rounded-lg  bg-black-blue p-4 shadow-md dark:bg-black-blue sm:p-6 lg:max-w-xl lg:p-8"
