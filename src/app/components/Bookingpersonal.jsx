@@ -9,41 +9,53 @@ export default function BookingPersonal({ extras, id }) {
 
 	console.log("extras is ", extras, extrasarray);
 	return (
-		<section className="p-8 border max-w-screen-sm flex flex-col items-center rounded-lg">
-			<h1>Personal Info</h1>
-			<form className="border" action={handleReservation}>
+		<section className="p-4 max-w-screen-sm flex flex-col items-center rounded-lg bg-black-blue shadow-md ">
+			<h1 className="text-lg font-bold text-white ">Personal Info</h1>
+			<form className=" rounded-lg w-full" action={handleReservation}>
 				<div className="flex flex-col p-4 [&>*:nth-child(even)]:mb-2">
-					<label htmlFor="firstname">First Name*</label>
+					<label className="label" htmlFor="firstname">
+						First Name*
+					</label>
 					<input
-						className="p-2 text-black rounded-md"
+						className="input"
 						type="text"
 						name="firstname"
 						id="firstname"
 						required
+						placeholder="First name.."
 					/>
-					<label htmlFor="lastname">Last Name*</label>
+					<label className="label" htmlFor="lastname">
+						Last Name*
+					</label>
 					<input
-						className="p-2 text-black rounded-md"
+						className="input"
 						type="text"
 						name="lastname"
 						id="lastname"
 						required
+						placeholder="Last name.."
 					/>
-					<label htmlFor="email">Email*</label>
+					<label className="label" htmlFor="email">
+						Email*
+					</label>
 					<input
-						className="p-2 text-black rounded-md"
+						className="input"
 						type="email"
 						name="email"
 						id="email"
 						required
+						placeholder="example@example.com.."
 					/>
-					<label htmlFor="phone">Phone Number*</label>
+					<label className="label" htmlFor="phone">
+						Phone Number*
+					</label>
 					<input
-						className="p-2 text-black rounded-md"
+						className="input"
 						type="tel"
 						name="phone"
 						id="phone"
 						required
+						placeholder="8888 8888"
 					/>
 					<input
 						type="text"
@@ -51,11 +63,6 @@ export default function BookingPersonal({ extras, id }) {
 						className="sr-only"
 						value={id}
 						readOnly
-					/>
-					<input
-						className="w-full bg-white text-black py-2 rounded-md hover:bg-slate-800 hover:text-white transition-all cursor-pointer"
-						type="submit"
-						value="Submit"
 					/>
 				</div>
 				<div>
@@ -67,7 +74,7 @@ export default function BookingPersonal({ extras, id }) {
 								value={extras - 1}
 								readOnly
 							/>
-							<h2 className="text-lg font-bold">
+							<h2 className="text-lg font-bold text-white">
 								Extra persons names
 							</h2>
 							{extrasarray.map((nu, i) => {
@@ -77,23 +84,31 @@ export default function BookingPersonal({ extras, id }) {
 										className="flex flex-col text-sm"
 									>
 										<label
-											className="m-1"
+											className="label"
 											htmlFor={`extraname${i}`}
 										>
 											Extra person {i + 1} full name
 										</label>
 										<input
 											required
-											className="p-1 text-black rounded-md"
+											className="input mb-2"
 											type="text"
 											id={`extraname${i}`}
 											name={`extraname${i}`}
+											placeholder="Full name.."
 										/>
 									</div>
 								);
 							})}
 						</div>
 					)}
+				</div>
+				<div className="flex flex-col p-4 [&>*:nth-child(even)]:mb-2">
+					<input
+						className="button"
+						type="submit"
+						value="Continue to payment &#8594;"
+					/>
 				</div>
 			</form>
 		</section>

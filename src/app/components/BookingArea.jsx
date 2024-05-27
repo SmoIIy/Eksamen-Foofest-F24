@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation";
 import { fetchData } from "../modules/functions";
 import { useFormStatus } from "react-dom";
+import { Tooltip } from "@nextui-org/tooltip";
 import {
 	apiKey,
 	databaseTestEndport,
@@ -11,6 +12,7 @@ import {
 import { areasAvailable, submitForm } from "../modules/actions";
 import { useEffect, useState } from "react";
 import { FormProvider } from "react-hook-form";
+
 //TODO FIX AREAS AVAILABLE
 //FOR LOOP MAYBE?
 // const response = await fetch(databaseTestEndport, {
@@ -81,105 +83,165 @@ export default function BookingArea() {
 		<form
 			onChange={checkGuests}
 			action={submitForm}
-			className="p-8 border max-w-screen-sm flex flex-col items-center [&>*]:w-full"
+			className="p-8 max-w-screen-sm grid bg-black-blue rounded-lg gap-6  items-center [&>*]:w-full [&>*]:h-full"
 		>
-			<h1 className="font-Header-font">Cock and balls</h1>
-			<div className="m-4 p-4 border flex flex-col ">
-				<label htmlFor="area">Area</label>
-				<select required className="text-black" name="area" id="area">
-					{Object.values(areasAvailable).map((area) => (
-						<option
-							className="p-2"
-							key={area.area}
-							value={area.area}
-						>
-							{area.area} ({area.available} Spots left)
-						</option>
-					))}
-				</select>
-			</div>
-			<div className="m-4 p-4 border grid">
-				<label htmlFor="guests">
-					Guests <span className="text-xs">(799,- per guest)</span>
-				</label>
-				<input
-					onChange={handleGuests}
-					type="number"
-					required
-					className="text-black mb-2 p-2 rounded-md"
-					name="guests"
-					id="guests"
-					placeholder="Number of guests"
-					min={0}
-					max={10}
-				></input>
-				<label htmlFor="vipguests">
-					VIP Guests{" "}
-					<span className="text-xs">(1299,- per guest)</span>
-				</label>
-				<input
-					onChange={handleGuests}
-					type="number"
-					required
-					className="text-black mb-2 p-2 rounded-md"
-					name="vipguests"
-					id="vipguests"
-					placeholder="Number of VIPs"
-					min={0}
-					max={10}
-				></input>
-			</div>
-			<div className="m-4 p-4 border flex flex-col">
-				<label htmlFor="tent-2">
-					Setup 2 person tents{" "}
-					<span className="text-xs">(299,- per)</span>
-				</label>
-				<input
-					type="number"
-					required
-					className="text-black mb-2 p-2  rounded-md"
-					name="tent-2"
-					id="tent-2"
-					placeholder="Number of tents.."
-					min={0}
-					max={10}
-				></input>
-				<label htmlFor="tent-3">
-					Setup 3 person tents{" "}
-					<span className="text-xs">(399,- per)</span>
-				</label>
-				<input
-					type="number"
-					required
-					className="text-black mb-2 p-2 k rounded-md w-full"
-					name="tent-3"
-					id="tent-3"
-					placeholder="Number of tents.."
-					min={0}
-					max={10}
-				></input>
-			</div>
-			<div className="m-4 p-4 border items-center border-gray-200 flex rounded">
-				<input
-					className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-					type="checkbox"
-					name="greencamping"
-					id="greencamping"
-				/>
-				<label
-					className="w-full py-4 ms-2 text-sm font-medium text-gray-200"
-					htmlFor="greencamping"
-				>
-					Green Camping Option(+249)
-				</label>
-			</div>
+			<div className="[&>*]:rounded">
+				<h1 className="text-white text-xl text-center font-bold">
+					Booking
+				</h1>
 
-			<input
-				aria-disabled={pending}
-				className="border p-4 cursor-pointer"
-				type="submit"
-				value="Submit"
-			/>
+				<div className="my-4 p-4  flex flex-col  ">
+					<label className="label" htmlFor="area">
+						Area
+					</label>
+					<select required className="input" name="area" id="area">
+						{Object.values(areasAvailable).map((area) => (
+							<option
+								className="p-2"
+								key={area.area}
+								value={area.area}
+							>
+								{area.area} ({area.available} Spots left)
+							</option>
+						))}
+					</select>
+					<p className="text-xs text-white p-1">
+						Choose which area to camp at
+					</p>
+				</div>
+				<div className="my-4 p-4  flex flex-col">
+					<h3 className="text-white text-xl text-center font-bold mb-2">
+						Tickets
+					</h3>
+					<label className="label" htmlFor="guests">
+						Guests{" "}
+						<span className="text-xs">(799,- per guest)</span>
+					</label>
+					<select
+						onChange={handleGuests}
+						type="number"
+						required
+						className="input"
+						name="guests"
+						id="guests"
+						placeholder="Number of guests"
+					>
+						<option value="">-Choose number of guests-</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<label className="label mt-2" htmlFor="vipguests">
+						VIP Guests{" "}
+						<span className="text-xs">(1299,- per guest)</span>
+					</label>
+					<select
+						onChange={handleGuests}
+						type="number"
+						required
+						className="input"
+						name="vipguests"
+						id="vipguests"
+						placeholder="Number of VIPs"
+					>
+						{" "}
+						<option value="">-Choose number of guests-</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+				<div className="my-4 p-4  flex flex-col">
+					<h3 className="text-white text-xl text-center font-bold mb-2">
+						Tents{" "}
+						<Tooltip
+							showArrow={true}
+							content={
+								<p className="text-white max-w-prose bg-main-orange text-xs p-2 rounded-lg">
+									Would you like us to setup tents for you
+									before you arrive? Note that the amount of
+									tents must match the amount of guests
+								</p>
+							}
+							delay={500}
+						>
+							<span className="text-white bg-main-orange rounded-full px-2 cursor-default">
+								&#63;
+							</span>
+						</Tooltip>
+					</h3>
+
+					<label className="label" htmlFor="tent-2">
+						Setup 2 person tents{" "}
+						<span className="text-xs">(299,- per)</span>
+					</label>
+					<select
+						type="number"
+						required
+						className="input"
+						name="tent-2"
+						id="tent-2"
+					>
+						{" "}
+						<option value="">-Choose number of tents-</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<label className="label mt-2" htmlFor="tent-3">
+						Setup 3 person tents{" "}
+						<span className="text-xs">(399,- per)</span>
+					</label>
+					<select
+						type="number"
+						required
+						className="input"
+						name="tent-3"
+						id="tent-3"
+					>
+						{" "}
+						<option value="">-Choose number of tents-</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+				<h3 className="text-white text-xl text-center font-bold mb-2">
+					Extra Options
+				</h3>
+				<div className="my-4 p-4  items-center -gray-200 flex rounded">
+					<input
+						className="w-4 h-4 text-blue-600 bg-gray-100 -gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:-gray-600"
+						type="checkbox"
+						name="greencamping"
+						id="greencamping"
+					/>
+					<label
+						className="w-full py-4 ms-2 text-sm font-medium text-gray-200"
+						htmlFor="greencamping"
+					>
+						Green Camping Option(+249)
+					</label>
+				</div>
+				<input
+					aria-disabled={pending}
+					className="button w-full px-4"
+					type="submit"
+					value="Continue &#8594;"
+				/>
+			</div>
 		</form>
 	);
 }
