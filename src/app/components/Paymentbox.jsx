@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
-export default function Paymentbox() {
+export default function Paymentbox({ id }) {
 	async function handleSubmit(e) {
 		"use server";
-		alert.e.target();
+
+		redirect("/booking/confirmation?randomid=eq." + id);
 	}
 	return (
-		<div className=" lg:flex lg:gap-12 self-stretch">
+		<div className="  ">
 			<form
 				action={handleSubmit}
 				className="w-full rounded-lg  bg-black-blue p-4 shadow-md dark:bg-black-blue sm:p-6 lg:max-w-xl lg:p-8"
@@ -17,7 +19,7 @@ export default function Paymentbox() {
 				<div className="mb-6 grid grid-cols-2 gap-4">
 					<div className="col-span-2 sm:col-span-1">
 						<label
-							for="full_name"
+							htmlFor="full_name"
 							className="mb-2 block text-sm font-medium text-gray-900 dark:text-white min-w-fit"
 						>
 							{" "}
@@ -34,7 +36,7 @@ export default function Paymentbox() {
 
 					<div className="col-span-2 sm:col-span-1">
 						<label
-							for="card-number-input"
+							htmlFor="card-number-input"
 							className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
 						>
 							{" "}
@@ -52,7 +54,7 @@ export default function Paymentbox() {
 
 					<div>
 						<label
-							for="card-expiration-input"
+							htmlFor="card-expiration-input"
 							className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
 						>
 							Card expiration*{" "}
@@ -69,14 +71,14 @@ export default function Paymentbox() {
 									viewBox="0 0 24 24"
 								>
 									<path
-										fill-rule="evenodd"
+										fillRule="evenodd"
 										d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
-										clip-rule="evenodd"
+										clipRule="evenodd"
 									/>
 								</svg>
 							</div>
 							<input
-								datepicker
+								datepicker="true"
 								datepicker-format="mm/yy"
 								id="card-expiration-input"
 								type="text"
@@ -88,7 +90,7 @@ export default function Paymentbox() {
 					</div>
 					<div>
 						<label
-							for="cvv-input"
+							htmlFor="cvv-input"
 							className="mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"
 						>
 							CVV*
@@ -118,7 +120,7 @@ export default function Paymentbox() {
 				<button type="submit" className="button w-full">
 					Pay now
 				</button>
-				<div class="mt-6 flex items-center justify-center gap-8">
+				<div className="mt-6 flex items-center justify-center gap-8">
 					<Image
 						className="h-8 w-auto"
 						src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/brand-logos/paypal.svg"
