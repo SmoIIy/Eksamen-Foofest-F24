@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation";
 import { fetchData } from "../modules/functions";
 import { useFormStatus } from "react-dom";
+import { Tooltip } from "@nextui-org/tooltip";
 import {
 	apiKey,
 	databaseTestEndport,
@@ -11,8 +12,7 @@ import {
 import { areasAvailable, submitForm } from "../modules/actions";
 import { useEffect, useState } from "react";
 import { FormProvider } from "react-hook-form";
-import Image from "next/image";
-import picture from "@/app/assets/logos/full-color.svg";
+
 //TODO FIX AREAS AVAILABLE
 //FOR LOOP MAYBE?
 // const response = await fetch(databaseTestEndport, {
@@ -83,21 +83,14 @@ export default function BookingArea() {
 		<form
 			onChange={checkGuests}
 			action={submitForm}
-			className="p-8 max-w-screen-sm grid bg-black-blue gap-6 md:grid-cols-2 items-center [&>*]:w-full [&>*]:h-full"
+			className="p-8 max-w-screen-sm grid bg-black-blue rounded-lg gap-6  items-center [&>*]:w-full [&>*]:h-full"
 		>
-			<div className="text-white flex flex-col items-center">
-				<h2 className="font-bold text-lg text-left w-full">
-					Practical Information
-				</h2>
-				<p>
-					Choose which campingsite you want to camp at, how many
-					guests are gonna be present, as well as other information.
-					You will enter personal information on the next page
-				</p>
-				<Image className="my-4" src={picture} alt="logo"></Image>
-			</div>
 			<div className="[&>*]:rounded">
-				<div className="my-4 p-4 border flex flex-col  ">
+				<h1 className="text-white text-xl text-center font-bold">
+					Booking
+				</h1>
+
+				<div className="my-4 p-4  flex flex-col  ">
 					<label className="label" htmlFor="area">
 						Area
 					</label>
@@ -112,8 +105,14 @@ export default function BookingArea() {
 							</option>
 						))}
 					</select>
+					<p className="text-xs text-white p-1">
+						Choose which area to camp at
+					</p>
 				</div>
-				<div className="my-4 p-4 border flex flex-col">
+				<div className="my-4 p-4  flex flex-col">
+					<h3 className="text-white text-xl text-center font-bold mb-2">
+						Tickets
+					</h3>
 					<label className="label" htmlFor="guests">
 						Guests{" "}
 						<span className="text-xs">(799,- per guest)</span>
@@ -158,7 +157,26 @@ export default function BookingArea() {
 						<option value="5">5</option>
 					</select>
 				</div>
-				<div className="my-4 p-4 border flex flex-col">
+				<div className="my-4 p-4  flex flex-col">
+					<h3 className="text-white text-xl text-center font-bold mb-2">
+						Tents{" "}
+						<Tooltip
+							showArrow={true}
+							content={
+								<p className="text-white max-w-prose bg-main-orange text-xs p-2 rounded-lg">
+									Would you like us to setup tents for you
+									before you arrive? Note that the amount of
+									tents must match the amount of guests
+								</p>
+							}
+							delay={1000}
+						>
+							<span className="text-white bg-main-orange rounded-full px-2 cursor-default">
+								&#63;
+							</span>
+						</Tooltip>
+					</h3>
+
 					<label className="label" htmlFor="tent-2">
 						Setup 2 person tents{" "}
 						<span className="text-xs">(299,- per)</span>
@@ -200,9 +218,12 @@ export default function BookingArea() {
 						<option value="5">5</option>
 					</select>
 				</div>
-				<div className="my-4 p-4 border items-center border-gray-200 flex rounded">
+				<h3 className="text-white text-xl text-center font-bold mb-2">
+					Extra Options
+				</h3>
+				<div className="my-4 p-4  items-center -gray-200 flex rounded">
 					<input
-						className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+						className="w-4 h-4 text-blue-600 bg-gray-100 -gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:-gray-600"
 						type="checkbox"
 						name="greencamping"
 						id="greencamping"
