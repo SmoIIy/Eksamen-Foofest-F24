@@ -105,7 +105,7 @@ function Schedule() {
 						),
 					)}
 				</div>
-				<div className=""></div>
+				<div className="bg-logo-pattern"></div>
 			</div>
 		</div>
 	);
