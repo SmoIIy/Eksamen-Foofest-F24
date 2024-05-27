@@ -11,7 +11,7 @@ export default function BandCard({ name, img, slug }) {
 						layout="fill"
 						objectFit="cover"
 						alt={name}
-						className="hover:scale-105 transition-transform duration-300"
+						className="hover:scale-110 transition-transform duration-300"
 					/>
 				</div>
 				<div className="absolute bottom-0 left-0 right-0 text-white p-2 text-center">
