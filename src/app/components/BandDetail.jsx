@@ -1,15 +1,19 @@
 import Image from "next/image";
 
 export default function BandDetail({ band }) {
+	const logoSrc = band.logo.startsWith("https://source.unsplash.com")
+		? band.logo
+		: `https://mgp-allstars-2009-server.glitch.me/logos/${band.logo}`;
+
 	return (
 		<div className="min-h-screen bg-black-blue text-white">
 			<div className="relative">
-				<div className="w-full h-96 md:h-[600px] overflow-hidden">
+				<div className="w-full h-96 md:h-[600px] relative overflow-hidden">
 					<Image
-						src={`https://mgp-allstars-2009-server.glitch.me/logos/${band.logo}`}
-						layout="fill"
-						objectFit="cover"
+						src={logoSrc}
+						fill
 						alt={band.name}
+						style={{ objectFit: "cover" }}
 						className="opacity-70"
 					/>
 				</div>
