@@ -223,7 +223,7 @@ export default function BookingArea() {
 				</h3>
 				<div className="my-4 p-4  items-center -gray-200 flex rounded">
 					<input
-						className="w-4 h-4 text-blue-600 bg-gray-100 -gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:-gray-600"
+						className="w-4 h-4 text-pinks-600 accent-main-orange bg-gray-100 -gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:-gray-600"
 						type="checkbox"
 						name="greencamping"
 						id="greencamping"
