@@ -3,7 +3,7 @@ import "tailwindcss/tailwind.css";
 
 const ScrollingText = () => {
 	return (
-		<div className="m-scroll flex absolute top-0 left-0 w-full h-[100px] bg-red-600 overflow-hidden z-10">
+		<div className="m-scroll flex relative w-full h-[100px] bg-red-600 overflow-hidden z-10 fixed bottom-0">
 			<div className="m-scroll__title flex absolute top-0 left-0 items-center justify-start w-full h-full whitespace-nowrap transform transition-all duration-1000 ease-in-out">
 				<div className="flex animate-scrollText items-center">
 					<h1 className="text-9xl m-0 text-white transition-all duration-2000 ease-in-out">
@@ -26,7 +26,7 @@ const ScrollingText = () => {
 							points="0 68.48 63.33 0 74 34.24 74 119.33 63.33 43 51.33 37 46.33 47 40.33 41 32.33 53 28.33 47 22.67 57.5 0 68.48"
 						/>
 					</svg>
-					<h1 className="text-9xl m-0 text-white transition-all ease-in-out">
+					<h1 className="text-9xl m-0 text-white transition-all duration-2000 ease-in-out">
 						FOOFEST 2024&nbsp;
 					</h1>
 					<svg
@@ -60,7 +60,7 @@ const ScrollingText = () => {
 				}
 
 				.m-scroll__title > div {
-					animation: scrollText 3s infinite linear;
+					animation: scrollText 33s infinite linear;
 				}
 			`}</style>
 		</div>
