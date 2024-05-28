@@ -52,7 +52,7 @@ function Schedule() {
 	const scenes = ["Midgard", "Vanaheim", "Jotunheim"];
 
 	return (
-		<div className="text-white m-4">
+		<main className="text-white m-4 min-h-screen">
 			<div className="flex justify-center mb-6 space-x-4">
 				{scenes.map((scene) => (
 					<button
@@ -106,6 +106,6 @@ function Schedule() {
 				</div>
 				<div className="bg-logo-pattern bg-50% my-10 opacity-50"></div>
 			</div>
-		</div>
+		</main>
 	);
 }

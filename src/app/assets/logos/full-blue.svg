@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 134.78">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 60px;
+        letter-spacing: .58em;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: #041737;
+      }
+
+      .cls-1, .cls-4 {
+        font-family: TaurunumFerrum-Iron, 'Taurunum Ferrum';
+      }
+
+      .cls-2 {
+        stroke: #041737;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        font-size: 72px;
+      }
+    </style>
+  </defs>
+  <text class="cls-4" transform="translate(80.5 67.21)"><tspan x="0" y="0">Foo Fest</tspan></text>
+  <text class="cls-1" transform="translate(80.59 119.48)"><tspan x="0" y="0">2024</tspan></text>
+  <line class="cls-2" x1="81" y1="72.5" x2="290" y2="72.5"/>
+  <polygon class="cls-3" points="0 68.48 63.33 0 74 34.24 74 119.33 63.33 43 51.33 37 46.33 47 40.33 41 32.33 53 28.33 47 22.67 57.5 0 68.48"/>
+  <polygon class="cls-3" points="372 68.48 308.67 0 298 34.24 298 119.33 308.67 43 320.67 37 325.67 47 331.67 41 339.67 53 343.67 47 349.33 57.5 372 68.48"/>
+</svg>
