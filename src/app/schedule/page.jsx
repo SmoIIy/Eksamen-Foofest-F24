@@ -58,12 +58,15 @@ function Schedule() {
 					<button
 						key={scene}
 						onClick={() => setSelectedScene(scene)}
-						className={`px-4 py-2 rounded ${selectedScene === scene ? "bg-main-orange" : "bg-main-yellow hover:bg-main-orange"}`}
+						className={`px-4 py-2 rounded ${selectedScene === scene ? "bg-main-yellow" : "bg-dark-blue hover:bg-main-yellow"}`}
 					>
 						{scene}
 					</button>
 				))}
 			</div>
+			<p className="text-center mb-4">
+				Click on a scene above to view its schedule.
+			</p>
 			<h1 className="text-center text-3xl font-bold mb-4">
 				{selectedScene} Schedule
 			</h1>
