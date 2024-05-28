@@ -1,10 +1,6 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
-import { fetchData } from "@/app/modules/functions";
-import { endpoint } from "@/app/modules/settings";
 import Image from "next/image";
 import logoPic from "@/app/assets/logos/full-black.svg";
 import background from "@/app/assets/images/bg.png";
-import Heroimage from "../components/Heroimage";
 
 export default async function Landingpage() {
 	return (
