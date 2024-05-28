@@ -3,14 +3,12 @@
 import Link from "next/link";
 import logoC from "@/app/assets/logos/small-color.svg";
 import Image from "next/image";
-import LogoSpinner from "@/app/components/LogoSpinner";
+import ScrollingText from "@/app/components/ScrollingText";
 
 const Footer = () => {
 	return (
 		<footer className="bg-gray-900 text-white py-10 relative overflow-hidden">
-			<div>
-				<LogoSpinner></LogoSpinner>
-			</div>
+			<ScrollingText />
 
 			<div className="container mx-auto px-6 mt-24">
 				<div className="flex flex-col md:flex-row justify-between items-center">
