@@ -22,7 +22,9 @@ export default function BandDetail({ band }) {
 						{band.name}
 					</h1>
 				</div>
-				<p className="text-sm text-white mt-4">{band.logoCredits}</p>
+				<p className="text-xs text-white mt-4 line-clamp-1 max-w-prose">
+					{band.logoCredits}
+				</p>
 			</div>
 
 			<div className="max-w-5xl mx-auto bg-dark-blue rounded-lg shadow-lg p-8 relative overflow-hidden mt-8">
