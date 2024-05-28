@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url("https://use.typekit.net/rwn2mau.css");
 
 :root {
@@ -54,24 +55,4 @@ body {
 	100% {
 		transform: translateX(-200%);
 	}
-}
-
-.slide-text {
-	display: inline-block;
-	animation: slide 20s linear infinite;
-}
-
-.animated-container {
-	white-space: nowrap;
-	display: flex;
-	align-items: center;
-}
-
-h1,
-.logo-container {
-	flex: none;
-}
-
-.logo-container {
-	display: inline-block;
 }

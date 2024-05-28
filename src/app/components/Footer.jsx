@@ -4,11 +4,12 @@ import Link from "next/link";
 import logoC from "@/app/assets/logos/small-color.svg";
 import Image from "next/image";
 import LogoSpinner from "@/app/components/LogoSpinner";
+import "tailwindcss/tailwind.css";
 
 const Footer = () => {
 	return (
 		<footer className="bg-gray-900 text-white py-10 relative overflow-hidden">
-			<div className="container mx-auto">
+			<div>
 				<LogoSpinner></LogoSpinner>
 			</div>
 
