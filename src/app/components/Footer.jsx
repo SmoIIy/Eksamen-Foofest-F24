@@ -9,7 +9,7 @@ import "tailwindcss/tailwind.css";
 const Footer = () => {
 	return (
 		<footer className="bg-gray-900 text-white py-10 relative overflow-hidden">
-			<div>
+			<div className="hidden md:block">
 				<LogoSpinner></LogoSpinner>
 			</div>
 
@@ -34,19 +34,19 @@ const Footer = () => {
 							href="/about"
 							className="text-gray-400 hover:text-yellow-500 transition-colors"
 						>
-							About
+							Schedule
 						</Link>
 						<Link
-							href="/lineup"
+							href="/schedule"
 							className="text-gray-400 hover:text-yellow-500 transition-colors"
 						>
 							Lineup
 						</Link>
 						<Link
-							href="/contact"
+							href="/booking"
 							className="text-gray-400 hover:text-yellow-500 transition-colors"
 						>
-							Contact
+							Booking
 						</Link>
 					</nav>
 				</div>
