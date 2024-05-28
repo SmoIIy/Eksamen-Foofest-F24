@@ -2,6 +2,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Header from "./components/Header";
+import Footer from "@/app/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -22,9 +23,7 @@ export default function RootLayout({ children }) {
 				<Header />
 
 				<main className="flex-grow">{children}</main>
-				<footer className="bg-black-blue text-white py-4 text-center w-full">
-					<p>FooFest 2024</p>
-				</footer>
+				<Footer></Footer>
 			</body>
 		</html>
 	);

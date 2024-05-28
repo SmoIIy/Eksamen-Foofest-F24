@@ -46,3 +46,32 @@ body {
 		@apply text-white bg-main-orange hover:bg-orange-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-main-orange dark:hover:hover:bg-main-yellow dark:focus:ring-blue-800 cursor-pointer transition-colors;
 	}
 }
+
+@keyframes slide {
+	0% {
+		transform: translateX(200%);
+	}
+	100% {
+		transform: translateX(-200%);
+	}
+}
+
+.slide-text {
+	display: inline-block;
+	animation: slide 20s linear infinite;
+}
+
+.animated-container {
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+}
+
+h1,
+.logo-container {
+	flex: none;
+}
+
+.logo-container {
+	display: inline-block;
+}
