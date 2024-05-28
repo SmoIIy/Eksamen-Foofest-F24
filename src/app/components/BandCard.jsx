@@ -7,7 +7,7 @@ export default function BandCard({ name, img, slug }) {
 		: `https://mgp-allstars-2009-server.glitch.me/logos/${img}`;
 
 	return (
-		<div className="relative overflow-hidden rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 bg-dark-purple">
+		<div className="relative overflow-hidden rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 bg-dark-blue">
 			<Link href={`/lineup/${slug}`} className="block">
 				<div className="relative w-full aspect-w-1 aspect-h-1">
 					<Image
