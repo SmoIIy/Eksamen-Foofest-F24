@@ -34,7 +34,7 @@ export async function submitForm(formData) {
 
 		async function uploadData(data, id) {
 			data.randomid = id;
-			console.log(data);
+
 			const response = await fetch(databaseTestEndport, {
 				method: "POST",
 				headers: headerList,
@@ -42,7 +42,6 @@ export async function submitForm(formData) {
 			});
 			//------------
 
-			console.log("Posting ", await response.json(), "to database", id);
 			return id;
 		}
 		const reserveData = await response.json();
@@ -53,37 +52,3 @@ export async function submitForm(formData) {
 	const id = await reserveSpot(rawFormData);
 	redirect("/booking/bookinginfo?randomid=eq." + id);
 }
-
-// export const areasAvailable = Object.values(
-// 	await fetchData(endpoint + "/available-spots"),
-// ).filter((key) => {
-// 	return key.available != 0;
-// });
-// export async function handleReservation(formData) {
-// 	"use server";
-// 	let expraPersons = [];
-
-// 	console.log(formData.getAll(`extraname`));
-// 	const rawFormData = {
-// 		firstname: formData.get("firstname"),
-// 		lastname: formData.get("lastname"),
-// 		email: formData.get("email"),
-// 		phone: formData.get("phone"),
-
-// 	};
-// 	const id = formData.get("id");
-// 	const responseRes = await fetch(endpoint + "/fullfill-reservation", {
-// 		method: "POST",
-// 		headers: {
-// 			"Content-Type": "application/json",
-// 		},
-// 		body: {
-// 			id: id,
-// 		},
-// 	});
-// 	const resFinal = await responseRes.text();
-// 	//console.log("resFinal is", resFinal);
-
-// 	console.log(rawFormData, id);
-// 	redirect("/booking/confirmation?randomid=eq." + id);
-// }

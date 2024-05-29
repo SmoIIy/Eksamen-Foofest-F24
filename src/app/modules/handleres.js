@@ -9,7 +9,6 @@ import { redirect } from "next/navigation";
 export async function handleReservation(formData) {
 	let expraPersons = formData.get("extraarray");
 
-	console.log(expraPersons);
 	const rawFormData = {
 		firstname: formData.get("firstname"),
 		lastname: formData.get("lastname"),
@@ -32,13 +31,13 @@ export async function handleReservation(formData) {
 	});
 
 	const resFinal = await responseRes.text();
-	//console.log("resFinal is", resFinal);
+
 	const uploadData = await fetch(databaseTestEndport + "?randomid=eq." + id, {
 		method: "PATCH",
 		headers: headerList,
 		body: JSON.stringify(rawFormData),
 	});
 	const dataFinal = await uploadData.json();
-	console.log(rawFormData, dataFinal);
+
 	redirect("/booking/payment?randomid=eq." + id);
 }
