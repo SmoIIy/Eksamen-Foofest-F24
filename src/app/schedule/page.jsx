@@ -9,6 +9,7 @@ import { fetchData } from "@/app/modules/functions";
 import { endpoint } from "@/app/modules/settings";
 import Link from "next/link";
 import Image from "next/image";
+import Loadingspinner from "../components/Loadingspinner";
 
 const queryClient = new QueryClient();
 
@@ -43,7 +44,7 @@ function Schedule() {
 	});
 
 	if (scheduleLoading || bandsLoading)
-		return <div className="text-center text-white">Loading...</div>;
+		return <Loadingspinner></Loadingspinner>;
 	if (scheduleError || bandsError)
 		return (
 			<div className="text-center text-red-500">Error loading data</div>
@@ -58,12 +59,15 @@ function Schedule() {
 					<button
 						key={scene}
 						onClick={() => setSelectedScene(scene)}
-						className={`px-4 py-2 rounded ${selectedScene === scene ? "bg-main-orange" : "bg-main-yellow hover:bg-main-orange"}`}
+						className={`px-4 py-2 rounded ${selectedScene === scene ? "bg-main-yellow" : "bg-dark-blue hover:bg-main-yellow"}`}
 					>
 						{scene}
 					</button>
 				))}
 			</div>
+			<p className="text-center mb-4">
+				Click on a scene above to view its schedule.
+			</p>
 			<h1 className="text-center text-3xl font-bold mb-4">
 				{selectedScene} Schedule
 			</h1>
@@ -81,22 +85,22 @@ function Schedule() {
 											key={index}
 											className="p-4 bg-dark-blue rounded-lg shadow max-w-screen-lg"
 										>
-											<div className="text-lg mb-2">
-												{event.start} - {event.end}
-											</div>
 											<Link
 												href={`/lineup/${event.act.replace(/\s+/g, "-").toLowerCase()}`}
 												className="text-2xl font-bold text-white hover:text-light-purple"
 											>
+												<div className="text-lg mb-2">
+													{event.start} - {event.end}
+												</div>
 												{event.act}
+												{event.cancelled ? (
+													<span className="text-red-500 ml-2">
+														(Cancelled)
+													</span>
+												) : (
+													""
+												)}
 											</Link>
-											{event.cancelled ? (
-												<span className="text-red-500 ml-2">
-													(Cancelled)
-												</span>
-											) : (
-												""
-											)}
 										</li>
 									))}
 								</ul>

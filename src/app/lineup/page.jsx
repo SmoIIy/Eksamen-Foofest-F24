@@ -5,7 +5,7 @@ import BandCard from "@/app/components/BandCard";
 export default async function Lineup() {
 	const data = await fetchData(endpoint + "/bands");
 	return (
-		<div className="p-4 bg-black-blue min-h-screen">
+		<div className="p-4 min-h-screen">
 			<div className="w-full max-w-screen-lg mx-auto">
 				<h1 className="text-6xl font-Header-font text-white font-bold text-center mb-8">
 					Lineup
