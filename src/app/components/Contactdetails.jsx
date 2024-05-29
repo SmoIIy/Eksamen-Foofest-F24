@@ -2,7 +2,7 @@ export default function Contactdetails({ props }) {
 	const extrapeople = props.extrapersons;
 	return (
 		<>
-			<section className="text-white bg-black-blue min-w-96 shadow-md rounded-lg overflow-hidden flex flex-col [&>*+*]:ml-4 [&>*+*]:mx-4 h-fit ">
+			<section className="text-white bg-black-blue md:min-w-96 shadow-md rounded-lg overflow-hidden flex flex-col [&>*+*]:ml-4 [&>*+*]:mx-4 h-fit ">
 				<div className=" border-b-2 border-main-orange text-white flex items-center justify-center font-bold h-16 w-full mb-4">
 					<h2 className="m-auto text-xl">Contact Details</h2>
 				</div>
