@@ -86,9 +86,11 @@ function Schedule() {
 											className="p-4 bg-dark-blue rounded-lg shadow max-w-screen-lg"
 										>
 											<Link
-												href={`/lineup/${event.act.replace(/\s+/g, "-").toLowerCase()}`}
+												href={`/lineup/${event.act.replace(/\s+/g, "-").replace(/[,]+/g, "").replace(/-+/g, "-").toLowerCase()}`}
 												className="text-2xl font-bold text-white hover:text-light-purple"
 											>
+												{/* Regex er genereret af ChatGPT */}
+
 												<div className="text-lg mb-2">
 													{event.start} - {event.end}
 												</div>
