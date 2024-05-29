@@ -9,12 +9,10 @@ export default function Jumbotron() {
 					<h1 className="text-white text-3xl md:text-5xl font-extrabold mb-2">
 						Book your tickets here!
 					</h1>
-					<p className="text-lg font-normal text-gray-00 mb-6">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Vero, iusto vel doloribus fuga repudiandae quibusdam
-						tempore praesentium inventore enim id voluptatibus
-						cumque ratione eum, voluptas quasi quos, recusandae
-						obcaecati placeat!
+					<p className="text-lg font-normal text-gray-400 mb-6">
+						Secure your spot at the most anticipated event of the
+						year! Enjoy a seamless ticket booking experience with
+						our easy to use platform.
 					</p>
 
 					<Link
@@ -31,9 +29,9 @@ export default function Jumbotron() {
 						>
 							<path
 								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
 								d="M1 5h12m0 0L9 1m4 4L9 9"
 							/>
 						</svg>{" "}
@@ -45,11 +43,10 @@ export default function Jumbotron() {
 							See our amazing lineup
 						</h2>
 						<p className="text-lg font-normal text-gray-400 mb-4">
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Obcaecati doloremque, ullam id ad consectetur
-							numquam temporibus quia quas, voluptatem veritatis
-							natus unde autem fugit libero minus alias incidunt
-							exercitationem aut.
+							Discover the incredible artists and performers who
+							will be gracing our stages. From headliners to
+							emerging talents, get ready for an unforgettable
+							experience.
 						</p>
 						<Link
 							className=" text-main-yellow hover:underline font-medium text-lg inline-flex items-center"
@@ -63,11 +60,9 @@ export default function Jumbotron() {
 							Who plays where and what time?
 						</h2>
 						<p className="text-lg font-normal text-gray-400 mb-4">
-							Lorem ipsum, dolor sit amet consectetur adipisicing
-							elit. Perferendis cupiditate ipsum fuga eos
-							repudiandae, illo omnis iste ratione quidem
-							voluptatum odio aliquid ipsam atque possimus. Sed
-							similique deserunt quasi ipsam.
+							Plan your day with our detailed schedule. Find out
+							when and where your favorite acts are performing so
+							you don't miss a moment of the excitement.
 						</p>
 						<Link
 							className=" text-main-yellow hover:underline font-medium text-lg inline-flex items-center"
