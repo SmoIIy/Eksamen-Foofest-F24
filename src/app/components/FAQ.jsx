@@ -36,8 +36,8 @@ export default function FAQ() {
 				title="Q: When and where is FooFest held?"
 			>
 				<p className="text-sm">
-					A: FooFest takes place from June 25th to July 1st at
-					Refshaløen, located in Copenhagen Denmark. The festival
+					A: FooFest takes place from [date] to [date] at [venue
+					name], located in [city, state, country]. The festival
 					grounds offer ample space for camping, food vendors, and
 					multiple stages.
 				</p>
