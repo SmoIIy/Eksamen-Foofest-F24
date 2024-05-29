@@ -7,7 +7,6 @@ export default function BookingPersonal({ extras, id }) {
 		extrasarray.push("n");
 	}
 
-	console.log("extras is ", extras, extrasarray);
 	return (
 		<section className="p-4 max-w-screen-sm flex flex-col items-center rounded-lg bg-black-blue shadow-md ">
 			<h1 className="text-lg font-bold text-white ">Personal Info</h1>

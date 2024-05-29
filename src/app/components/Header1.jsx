@@ -16,7 +16,6 @@ export default function Header() {
 			if (window.innerWidth >= 768) {
 				if (isNavOpen == true) {
 					setIsNavOpen(isNavOpen);
-					console.log("Sat nav closed");
 				}
 			}
 		}

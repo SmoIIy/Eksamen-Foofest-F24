@@ -38,16 +38,10 @@ export default function BookingArea() {
 
 	function handleGuests(e) {
 		setGuests(parseInt(e.target.value));
-		console.log(typeof guests, guests);
 	}
 	function checkGuests() {
 		if (guests + vips + threepers * 3 + twopers * 2) {
 			setGuestTentsMatch(true);
-			console.log(
-				guestTentsMatch,
-				"Total is",
-				guests + vips + threepers * 3 + twopers * 2,
-			);
 		}
 	}
 
@@ -65,7 +59,6 @@ export default function BookingArea() {
 				const filteredAreas = Object.values(data).filter(
 					(area) => area.available !== 0,
 				);
-				console.log(filteredAreas);
 				setAreasAvailable(filteredAreas);
 			} catch (error) {
 				console.error("Error fetching data:", error);

@@ -32,7 +32,6 @@ function Schedule() {
 		queryKey: ["schedule"],
 		queryFn: () => fetchData(endpoint + "/schedule"),
 	});
-	console.log(scheduleData);
 
 	const {
 		data: bandsData,
