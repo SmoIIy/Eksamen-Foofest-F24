@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 
 export default function Header() {
-	const [isNavOpen, setIsNavOpen] = useState(false);
+	const [isNavOpen, setIsNavOpen] = useState(true);
 	let hamburgerMenuClosed = classNames("hidden w-full md:block md:w-auto");
 	let hamburgerMenuOpen = classNames(
 		"w-full absolute top-14 left-0 md:block md:w-auto",
