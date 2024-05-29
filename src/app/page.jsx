@@ -2,6 +2,7 @@ import Image from "next/image";
 import logoPic from "@/app/assets/logos/full-black.svg";
 import background from "@/app/assets/images/bg.png";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Jumbotron from "@/app/components/Jumbotron";
 
 export default function Home() {
 	return (
@@ -25,6 +26,9 @@ export default function Home() {
 					></Image>
 					<p className="uppercase font-semibold">12 August 2024</p>
 				</section>
+			</div>
+			<div>
+				<Jumbotron></Jumbotron>
 			</div>
 		</main>
 	);
