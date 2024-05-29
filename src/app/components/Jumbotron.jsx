@@ -9,6 +9,7 @@ export default function Jumbotron() {
 					<h1 className="text-white text-3xl md:text-5xl font-extrabold mb-2">
 						Book your tickets here!
 					</h1>
+
 					<p className="text-lg font-normal text-gray-400 mb-6">
 						Secure your spot at the most anticipated event of the
 						year! Enjoy a seamless ticket booking experience with
