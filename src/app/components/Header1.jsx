@@ -3,7 +3,7 @@ import Image from "next/image";
 import logo from "@/app/assets/logos/full-orange.svg";
 import Link from "next/link";
 import { Collapse } from "flowbite";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
 export default function Header() {
@@ -12,6 +12,18 @@ export default function Header() {
 	let hamburgerMenuOpen = classNames(
 		"w-full absolute top-14 left-0 md:block md:w-auto",
 	);
+	useEffect(() => {
+		function resetResize() {
+			if (window.innerWidth >= 768) {
+				if (isNavOpen == true) {
+					setIsNavOpen(isNavOpen);
+					console.log("Sat nav closed");
+				}
+			}
+		}
+		window.addEventListener("resize", resetResize);
+	});
+
 	return (
 		<nav className="bg-black-blue border-gray-200 dark:bg-gray-900">
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -40,9 +52,9 @@ export default function Header() {
 					>
 						<path
 							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="2"
 							d="M1 1h15M1 7h15M1 13h15"
 						/>
 					</svg>
