@@ -18,7 +18,7 @@ export default function Jumbotron() {
 					</p>
 
 					<Link
-						className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-black-blue rounded-lg bg-main-yellow hover:bg-black-blue hover:border-main-yellow hover:text-main-yellow border-2 border-main-yellow focus:ring-4 focus:ring-blue-300 focus:ring-blue-900"
+						className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-black-blue rounded-lg bg-main-yellow hover:bg-black-blue hover:border-main-yellow hover:text-main-yellow border-2 border-main-yellow focus:ring-4 focus:ring-blue-900"
 						href="/booking"
 					>
 						Booking{" "}
@@ -40,8 +40,8 @@ export default function Jumbotron() {
 					</Link>
 				</div>
 				<div className="grid md:grid-cols-2 gap-8">
-					<div className="bg-black-blue border border-gray-200 border-dark-blue rounded-lg p-8 md:p-12">
-						<h2 className="text-gray-900 text-white text-3xl font-extrabold mb-2">
+					<div className="bg-black-blue border border-dark-blue rounded-lg p-8 md:p-12">
+						<h2 className=" text-white text-3xl font-extrabold mb-2">
 							See our amazing lineup
 						</h2>
 						<p className="text-lg font-normal text-gray-400 mb-4">
@@ -52,14 +52,14 @@ export default function Jumbotron() {
 							exercitationem aut.
 						</p>
 						<Link
-							className="text-blue-600 text-main-yellow hover:underline font-medium text-lg inline-flex items-center"
+							className=" text-main-yellow hover:underline font-medium text-lg inline-flex items-center"
 							href="/lineup"
 						>
 							Go to lineup
 						</Link>
 					</div>
-					<div className="bg-black-blue border border-gray-200 border-dark-blue rounded-lg p-8 md:p-12">
-						<h2 className="text-gray-900 text-white text-3xl font-extrabold mb-2">
+					<div className="bg-black-blue border border-dark-blue rounded-lg p-8 md:p-12">
+						<h2 className=" text-white text-3xl font-extrabold mb-2">
 							Who plays where and what time?
 						</h2>
 						<p className="text-lg font-normal text-gray-400 mb-4">
@@ -70,7 +70,7 @@ export default function Jumbotron() {
 							similique deserunt quasi ipsam.
 						</p>
 						<Link
-							className="text-blue-600 text-main-yellow hover:underline font-medium text-lg inline-flex items-center"
+							className=" text-main-yellow hover:underline font-medium text-lg inline-flex items-center"
 							href="/schedule"
 						>
 							Go to schedule
