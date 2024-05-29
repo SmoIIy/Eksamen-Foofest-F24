@@ -2,6 +2,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Header from "./components/Header";
+import Header1 from "./components/Header1";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -19,7 +20,8 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className="min-h-full">
 			<body className={`flex flex-col min-h-full ${poppins.className}`}>
-				<Header />
+				{/* <Header /> */}
+				<Header1 />
 
 				<main className="flex-grow">{children}</main>
 				<footer className="bg-black-blue text-white py-4 text-center w-full">
