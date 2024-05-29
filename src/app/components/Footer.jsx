@@ -13,7 +13,7 @@ const Footer = () => {
 			<div className="container mx-auto px-6 mt-24">
 				<div className="flex flex-col md:flex-row justify-between items-center">
 					<div className="text-center md:text-left mb-6 md:mb-0">
-						<h1 className="text-main-yellow text-4xl font-semibold tracking-tight">
+						<h1 className="text-main-orange text-4xl font-semibold tracking-tight">
 							FooFest
 						</h1>
 						<p className="text-gray-400 mt-3">
@@ -23,25 +23,25 @@ const Footer = () => {
 					<nav className="flex space-x-8">
 						<Link
 							href="/"
-							className="text-gray-400 hover:text-main-yellow transition-colors"
+							className="text-gray-400 hover:text-main-orange transition-colors"
 						>
 							Home
 						</Link>
 						<Link
 							href="/about"
-							className="text-gray-400 hover:text-main-yellow transition-colors"
+							className="text-gray-400 hover:text-main-orange transition-colors"
 						>
 							Schedule
 						</Link>
 						<Link
 							href="/schedule"
-							className="text-gray-400 hover:text-main-yellow transition-colors"
+							className="text-gray-400 hover:text-main-orange transition-colors"
 						>
 							Lineup
 						</Link>
 						<Link
 							href="/booking"
-							className="text-gray-400 hover:text-main-yellow transition-colors"
+							className="text-gray-400 hover:text-main-orange transition-colors"
 						>
 							Booking
 						</Link>
