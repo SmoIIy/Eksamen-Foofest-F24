@@ -13,7 +13,7 @@ export default function Header() {
 					alt="logo"
 				/>
 			</Link>
-			<nav className="flex justify-around m-auto w-6/12 text-main-orange font-bold">
+			<nav className="flex justify-around m-auto w-3/12 text-grey-400 font-bold">
 				<Link href="/booking">Booking</Link>
 				<Link href="/schedule">Schedule</Link>
 				<Link href="/lineup">Lineup</Link>

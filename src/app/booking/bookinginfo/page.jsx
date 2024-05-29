@@ -16,12 +16,12 @@ export default async function bookingInfo({ searchParams }) {
 	console.log("pricedata is ", priceData);
 
 	return (
-		<main className="grid p-6 md:grid-cols-2 mx-auto my-6 rounded-xl max-w-screen-lg w gap-6 justify-around">
+		<main className="md:grid min-h-screen p-6 md:grid-cols-2 mx-auto my-6 rounded-xl lg:max-w-screen-lg max-w-full gap-6 justify-around">
 			<BookingPersonal
 				extras={priceData[0].guests + priceData[0].vipguests}
 				id={priceData[0].randomid}
 			/>
-			<div className="flex flex-col">
+			<div className="flex flex-col my-4 lg:my-0">
 				<Pricebox props={priceData[0]} />
 				<article className="bg-black-blue mt-6 rounded-lg text-white p-4">
 					<h2 className="text-xl text-center font-bold">Payment</h2>
