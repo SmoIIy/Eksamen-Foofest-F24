@@ -17,7 +17,7 @@ export default function Jumbotron() {
 					</p>
 
 					<Link
-						className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-black-blue rounded-lg bg-main-orange hover:bg-black-blue hover:border-main-orange hover:text-main-orange border-2 border-main-orange focus:ring-4 focus:ring-blue-900"
+						className="inline-flex justify-center transition-colors items-center py-2.5 px-5 text-base font-medium text-center text-black-blue rounded-lg bg-main-orange hover:bg-black-blue hover:border-main-orange hover:text-main-orange border-2 border-main-orange focus:ring-4 focus:ring-blue-900"
 						href="/booking"
 					>
 						Booking{" "}
@@ -50,7 +50,7 @@ export default function Jumbotron() {
 							experience.
 						</p>
 						<Link
-							className=" text-main-orange hover:underline font-medium text-lg inline-flex items-center"
+							className=" text-main-orange hover:underline transition-colors font-medium text-lg inline-flex items-center"
 							href="/lineup"
 						>
 							Go to lineup
@@ -66,7 +66,7 @@ export default function Jumbotron() {
 							you dont miss a moment of the excitement.
 						</p>
 						<Link
-							className=" text-main-orange hover:underline font-medium text-lg inline-flex items-center"
+							className=" text-main-orange hover:underline font-medium transition-colors text-lg inline-flex items-center"
 							href="/schedule"
 						>
 							Go to schedule
