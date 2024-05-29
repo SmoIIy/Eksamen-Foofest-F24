@@ -31,7 +31,6 @@ export default function Header() {
 					className="flex items-center space-x-3 rtl:space-x-reverse w-32"
 				>
 					<Image src={logo} className="h-8" alt="FooFest Logo" />
-					<span>FooFest2024</span>
 				</Link>
 				<button
 					data-collapse-toggle="navbar-default"
