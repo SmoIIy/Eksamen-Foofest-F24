@@ -11,12 +11,12 @@ import { apiKey, databaseTestEndport, endpoint } from "../modules/settings";
 
 export default async function Booking() {
 	return (
-		<main className="grid p-6 md:grid-cols-2 mx-auto my-6 rounded-xl max-w-screen-lg w gap-6 justify-around">
+		<main className="grid p-6 md:grid-cols-2 mx-auto my-6 rounded-xl max-w-screen-lg gap-6 justify-around ">
 			<BookingArea />
 			<div className="text-white flex flex-col items-center p-4 bg-black-blue rounded-lg grow-0">
 				<article className="grow">
 					<h2 className="font-bold text-lg text-center w-full">
-						General Information | FAQ
+						FAQ
 					</h2>
 					<FAQ />
 				</article>

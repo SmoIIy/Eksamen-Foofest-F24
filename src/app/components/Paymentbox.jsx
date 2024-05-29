@@ -8,7 +8,7 @@ export default function Paymentbox({ id }) {
 		redirect("/booking/confirmation?randomid=eq." + id);
 	}
 	return (
-		<div className="  ">
+		<section className="max-w-full">
 			<form
 				action={handleSubmit}
 				className="w-full rounded-lg  bg-black-blue p-4 shadow-md dark:bg-black-blue sm:p-6 lg:max-w-xl lg:p-8"
@@ -145,6 +145,6 @@ export default function Paymentbox({ id }) {
 					/>
 				</div>
 			</form>
-		</div>
+		</section>
 	);
 }
