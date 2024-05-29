@@ -1,14 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import logoC from "@/app/assets/logos/small-color.svg";
-import Image from "next/image";
 import LogoSpinner from "@/app/components/LogoSpinner";
-import "tailwindcss/tailwind.css";
 
 const Footer = () => {
 	return (
-		<footer className="bg-gray-900 text-white py-10 relative overflow-hidden">
+		<footer className="bg-black-blue text-white py-10 relative overflow-hidden">
 			<div className="hidden md:block">
 				<LogoSpinner></LogoSpinner>
 			</div>
@@ -16,7 +13,7 @@ const Footer = () => {
 			<div className="container mx-auto px-6 mt-24">
 				<div className="flex flex-col md:flex-row justify-between items-center">
 					<div className="text-center md:text-left mb-6 md:mb-0">
-						<h1 className="text-yellow-500 text-4xl font-semibold tracking-tight">
+						<h1 className="text-main-yellow text-4xl font-semibold tracking-tight">
 							FooFest
 						</h1>
 						<p className="text-gray-400 mt-3">
@@ -26,25 +23,25 @@ const Footer = () => {
 					<nav className="flex space-x-8">
 						<Link
 							href="/"
-							className="text-gray-400 hover:text-yellow-500 transition-colors"
+							className="text-gray-400 hover:text-main-yellow transition-colors"
 						>
 							Home
 						</Link>
 						<Link
 							href="/about"
-							className="text-gray-400 hover:text-yellow-500 transition-colors"
+							className="text-gray-400 hover:text-main-yellow transition-colors"
 						>
 							Schedule
 						</Link>
 						<Link
 							href="/schedule"
-							className="text-gray-400 hover:text-yellow-500 transition-colors"
+							className="text-gray-400 hover:text-main-yellow transition-colors"
 						>
 							Lineup
 						</Link>
 						<Link
 							href="/booking"
-							className="text-gray-400 hover:text-yellow-500 transition-colors"
+							className="text-gray-400 hover:text-main-yellow transition-colors"
 						>
 							Booking
 						</Link>

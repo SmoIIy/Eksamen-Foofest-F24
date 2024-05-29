@@ -6,10 +6,10 @@ export default function Home() {
 		<div className="flex items-center justify-center overflow-hidden">
 			<div className="relative w-full h-full">
 				<div className="flex overflow-hidden">
-					<div className="text-white text-9xl font-extrabold uppercase whitespace-nowrap bg-dark-blue flex-shrink-0 px-4 animate-scroll">
+					<div className="text-white text-9xl font-extrabold uppercase whitespace-nowrap bg-black-blue flex-shrink-0 px-4 animate-scroll">
 						FOOFEST 2024! FOOFEST 2024! FOOFEST 2024! FOOFEST 2024!
 					</div>
-					<div className="text-white text-9xl font-extrabold uppercase whitespace-nowrap bg-dark-blue flex-shrink-0 px-4 animate-scroll2">
+					<div className="text-white text-9xl font-extrabold uppercase whitespace-nowrap bg-black-blue flex-shrink-0 px-4 animate-scroll2">
 						FOOFEST 2024! FOOFEST 2024! FOOFEST 2024! FOOFEST 2024!
 					</div>
 				</div>

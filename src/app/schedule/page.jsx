@@ -9,6 +9,7 @@ import { fetchData } from "@/app/modules/functions";
 import { endpoint } from "@/app/modules/settings";
 import Link from "next/link";
 import Image from "next/image";
+import Loadingspinner from "../components/Loadingspinner";
 
 const queryClient = new QueryClient();
 
@@ -43,7 +44,7 @@ function Schedule() {
 	});
 
 	if (scheduleLoading || bandsLoading)
-		return <div className="text-center text-white">Loading...</div>;
+		return <Loadingspinner></Loadingspinner>;
 	if (scheduleError || bandsError)
 		return (
 			<div className="text-center text-red-500">Error loading data</div>
@@ -84,22 +85,22 @@ function Schedule() {
 											key={index}
 											className="p-4 bg-dark-blue rounded-lg shadow max-w-screen-lg"
 										>
-											<div className="text-lg mb-2">
-												{event.start} - {event.end}
-											</div>
 											<Link
 												href={`/lineup/${event.act.replace(/\s+/g, "-").toLowerCase()}`}
 												className="text-2xl font-bold text-white hover:text-light-purple"
 											>
+												<div className="text-lg mb-2">
+													{event.start} - {event.end}
+												</div>
 												{event.act}
+												{event.cancelled ? (
+													<span className="text-red-500 ml-2">
+														(Cancelled)
+													</span>
+												) : (
+													""
+												)}
 											</Link>
-											{event.cancelled ? (
-												<span className="text-red-500 ml-2">
-													(Cancelled)
-												</span>
-											) : (
-												""
-											)}
 										</li>
 									))}
 								</ul>

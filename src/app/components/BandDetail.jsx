@@ -6,7 +6,7 @@ export default function BandDetail({ band }) {
 		: `https://mgp-allstars-2009-server.glitch.me/logos/${band.logo}`;
 
 	return (
-		<div className="min-h-screen text-white">
+		<div className="min-h-screen text-white bg-black-blue">
 			<div className="relative">
 				<div className="w-full h-96 md:h-[600px] relative overflow-hidden">
 					<Image
@@ -27,7 +27,7 @@ export default function BandDetail({ band }) {
 				{band.logoCredits}
 			</p>
 
-			<div className="max-w-5xl mx-auto bg-dark-blue rounded-lg shadow-lg p-8 relative overflow-hidden mt-8 mb-8">
+			<div className="max-w-5xl mx-auto bg-dark-blue rounded-lg shadow-lg p-8 relative overflow-hidden mt-8 mb-0">
 				<div className="absolute inset-0 opacity-30 bg-logo-pattern bg-cover bg-center"></div>
 				<div className="relative z-10 flex flex-col md:flex-row">
 					<div className="md:w-2/3">
