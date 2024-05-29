@@ -1,7 +1,6 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import Header from "./components/Header";
 import Header1 from "./components/Header1";
 import Footer from "@/app/components/Footer";
 
