@@ -2,7 +2,6 @@
 import Image from "next/image";
 import logo from "@/app/assets/logos/full-orange.svg";
 import Link from "next/link";
-import { Collapse } from "flowbite";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 
