@@ -62,7 +62,7 @@ export default function Jumbotron() {
 						<p className="text-lg font-normal text-gray-400 mb-4">
 							Plan your day with our detailed schedule. Find out
 							when and where your favorite acts are performing so
-							you don't miss a moment of the excitement.
+							you dont miss a moment of the excitement.
 						</p>
 						<Link
 							className=" text-main-yellow hover:underline font-medium text-lg inline-flex items-center"
