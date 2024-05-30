@@ -13,20 +13,7 @@ import { areasAvailable, submitForm } from "../modules/actions";
 import { useEffect, useState } from "react";
 import { FormProvider } from "react-hook-form";
 
-//TODO FIX AREAS AVAILABLE
-//FOR LOOP MAYBE?
-// const response = await fetch(databaseTestEndport, {
-// 	method: "POST",
-// 	headers: headerList,
-// 	body: bodyContent,
-// });
-
 export default function BookingArea() {
-	// const areasAvailable = Object.values(
-	// 	fetchData(endpoint + "/available-spots"),
-	// ).filter((key) => {
-	// 	return key.available != 0;
-	// });
 	const [stateendpoint] = useState(endpoint);
 	const [areasAvailable, setAreasAvailable] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
