@@ -34,7 +34,7 @@ export default function BookingArea() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			setIsLoading(true); // Set loading state to true (optional)
+			setIsLoading(true);
 			try {
 				const response = await fetch(
 					stateendpoint + "/available-spots",
